@@ -15,11 +15,12 @@
         <div class="container navbar-container">
             <a href="index.html" class="navbar-brand">
                 <div class="navbar-logo">
-                    <span class="material-symbols-outlined">apartment</span>
+                    <img src="assets/images/logo-patung-kuda-undip.png" alt="Logo UNDIP">
+                    <!-- <span class="material-symbols-outlined">apartment</span> -->
                 </div>
                 <div class="navbar-brand-text">
-                    <h1>Sistem Peminjaman Fasilitas Kampus</h1>
-                    <span>Universitas Diponegoro</span>
+                    <h1>SIAGA DIPS</h1>
+                    <span>Sistem Informasi Akses dan Pengelolaan Fasilitas Universitas Diponegoro</span> 
                 </div>
             </a>
             <div class="navbar-actions">
@@ -32,76 +33,79 @@
     </header>
     <main>
         <section class="hero">
+            <div class="hero-decoration hero-decoration-pink"></div>
+            <div class="hero-decoration hero-decoration-blue"></div>
             <div class="hero-container">
                 <div class="hero-content">
                     <span class="hero-badge">
-                        <span class="material-symbols-outlined">
-                            verified
-                        </span>
-                        Platform Aksesibilitas Fasilitas Kampus
+                        <span class="material-symbols-outlined">explore</span>
+                        Jelajahi Fasilitas Kampus
                     </span>
-                    <h1 class="hero-title">Temukan fasilitas kampus yang kamu butuhkan</h1>
-                    <p class="hero-description">Cari fasilitas kampus dan lihat ketersediannya sebelum mengajukan reservasi.</p>
+                    <h1 class="hero-title">Temukan tempat yang tepat untuk kegiatanmu</h1>
+                    <p class="hero-description">Cari fasilitas, cek ketersediaannya, dan ajukan
+peminjaman dengan mudah.</p>
                 </div>
-                <div class="search-box">
-                    <div class="search-box-input">
-                        <span class="material-symbols-outlined">search</span>
-                        <input type="text" placeholder="Cari fasilitas kampus...">
+                <div class="search-panel">
+                    <div class="search-box">
+                        <div class="search-box-input">
+                            <span class="material-symbols-outlined">search</span>
+                            <input type="text" placeholder="Cari fasilitas kampus...">
+                        </div>
+                        <button type="button" class="search-button">Cari</button>
+                        <button type="button" class="filter-submit">
+                            <span class="material-symbols-outlined">tune</span>
+                            <p>Terapkan</p>
+                        </button>
                     </div>
-                    <button type="button" class="search-button">Cari</button>
-                    <button type="button" class="filter-submit">
-                        <span class="material-symbols-outlined">tune</span>
-                        <p>Terapkan</p>
-                    </button>
                     <div class="filters">
-                        <div class="filter-group">
-                            <label for="facility-type">Tipe Fasilitas</label>
-                            <select id="facility-type">
-                                <option value="">Semua tipe</option>
-                                <option value="">Ruang Kelas</option>
-                                <option value="">Laboratorium</option>
-                                <option value="">Gor</option>
-                                <option value="">Lapangan</option>
-                                <option value="">Stadion</option>
-                                <option value="">Gedung/Aula</option>
-                                <option value="">Outdoor Area</option>
-                                <option value="">Masjid</option>
-                            </select>
-                        </div>
-                        <div class="filter-group">
-                            <label for="facility-location">Lokasi</label>
-                            <select id="facility-location">
-                                <option value="">Semua lokasi</option>
-                                <option value="">FH</option>
-                                <option value="">FEB</option>
-                                <option value="">FT</option>
-                                <option value="">FK</option>
-                                <option value="">FPP</option>
-                                <option value="">FIB</option>
-                                <option value="">FISIP</option>
-                                <option value="">FSM</option>
-                                <option value="">FKM</option>
-                                <option value="">FPIK</option>
-                                <option value="">FPSI</option>
-                                <option value="">SV</option>
-                                <option value="">Lainnya</option>
-                            </select>
-                        </div>
-                        <div class="filter-group">
-                            <label for="facility-capacity">Kapasitas</label>
-                            <select id="facility-capacity">
-                                <option value="">Semua kapasitas</option>
-                                <option value="">50</option>
-                                <option value="">100</option>
-                                <option value="">200</option>
-                                <option value="">1000</option>
-                                <option value="">±5000</option>
-                                <option value="">Lainnya</option>
-                            </select>
+                            <div class="filter-group">
+                                <label for="facility-type">Tipe Fasilitas</label>
+                                <select id="facility-type">
+                                    <option value="">Semua tipe</option>
+                                    <option value="">Ruang Kelas</option>
+                                    <option value="">Laboratorium</option>
+                                    <option value="">Gor</option>
+                                    <option value="">Lapangan</option>
+                                    <option value="">Stadion</option>
+                                    <option value="">Gedung/Aula</option>
+                                    <option value="">Outdoor Area</option>
+                                    <option value="">Masjid</option>
+                                </select>
+                            </div>
+                            <div class="filter-group">
+                                <label for="facility-location">Lokasi</label>
+                                <select id="facility-location">
+                                    <option value="">Semua lokasi</option>
+                                    <option value="">FH</option>
+                                    <option value="">FEB</option>
+                                    <option value="">FT</option>
+                                    <option value="">FK</option>
+                                    <option value="">FPP</option>
+                                    <option value="">FIB</option>
+                                    <option value="">FISIP</option>
+                                    <option value="">FSM</option>
+                                    <option value="">FKM</option>
+                                    <option value="">FPIK</option>
+                                    <option value="">FPSI</option>
+                                    <option value="">SV</option>
+                                    <option value="">Lainnya</option>
+                                </select>
+                            </div>
+                            <div class="filter-group">
+                                <label for="facility-capacity">Kapasitas</label>
+                                <select id="facility-capacity">
+                                    <option value="">Semua kapasitas</option>
+                                    <option value="">50</option>
+                                    <option value="">100</option>
+                                    <option value="">200</option>
+                                    <option value="">1000</option>
+                                    <option value="">±5000</option>
+                                    <option value="">Lainnya</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
         </section>
 
         <section class="facility-section">
@@ -115,99 +119,120 @@
                         <div class="facility-card-content">
                             <span class="facility-card-type">Gedung/Aula</span>
                             <h3 class="facility-card-title">Muladi Dome</h3>
-                            <p class="facility-card-location">Lainnya</p>
-                            <p class="facility-card-capacity">±5000 orang</p>
-                            <p class="facility-card-address">Jl. Prof. Soedarto No.50239, Tembalang</p>
+                            <p class="facility-card-location">
+                                <span class="material-symbols-outlined">location_on</span> Lainnya</p>
+                            <p class="facility-card-capacity">
+                                <span class="material-symbols-outlined">person</span> ±5000 orang</p>
+                            <p class="facility-card-address">
+                                <span class="material-symbols-outlined">home</span> Jl. Prof. Soedarto No.50239, Tembalang</p>
                             <a href="#" class="facility-card-link">Lihat detail ketersediaan →</a>
                         </div>
                     </article>
 
                     <article class="facility-card">
-                        <div class="facility-card-img-wrapper">
+                        <div class="facility-img-wrapper">
                             <img src="assets/images/polytron-stadium.png" alt="Polytron Stadium Undip" class="facility-card-image">
-                            <span class="facility-card-availability">Tersedia</span>
+                            <span class="facility-card-availability available">Tersedia</span>
                         </div>
                         <div class="facility-card-content">
                             <span class="facility-card-type">Stadion</span>
                             <h3 class="facility-card-title">Polytron Stadium</h3>
-                            <p class="facility-card-location">Lainnya</p>
-                            <p class="facility-card-capacity">300 orang</p>
-                            <p class="facility-card-address">Jl. Prof. Soedarto SH, Tembalang</p>
+                            <p class="facility-card-location"> 
+                                <span class="material-symbols-outlined">location_on</span> Lainnya</p>
+                            <p class="facility-card-capacity">
+                                <span class="material-symbols-outlined">person</span> 300 orang</p>
+                            <p class="facility-card-address">
+                                <span class="material-symbols-outlined">home</span> Jl. Prof. Soedarto SH, Tembalang</p>
                             <a href="#" class="facility-card-link">Lihat detail ketersediaan →</a>
                         </div>
                     </article>
 
                     <article class="facility-card">
-                        <div class="facility-card-img-wrapper">
+                        <div class="facility-img-wrapper">
                             <img src="assets/images/Gd-Auditorium-Prof.-Soedarto.png" alt="Gedung Auditorium Prof. Soedarto, S. H" class="facility-card-image">
-                            <span class="facility-card-availability">Dalam perbaikan</span>
+                            <span class="facility-card-availability maintenance">Dalam perbaikan</span>
                         </div>
                         <div class="facility-card-content">
                             <span class="facility-card-type">Gedung/Aula</span>
                             <h3 class="facility-card-title">Gedung Auditorium Prof. Soedarto, S.H.</h3>
-                            <p class="facility-card-location">Lainnya</p>
-                            <p class="facility-card-capacity">800 orang</p>
-                            <p class="facility-card-address">Jl. Prof. Soedarto, S.H., Kampus Universitas Diponegoro (Undip) Tembalang</p>
+                            <p class="facility-card-location">
+                                <span class="material-symbols-outlined">location_on</span> Lainnya</p>
+                            <p class="facility-card-capacity">
+                                <span class="material-symbols-outlined">person</span> 800 orang</p>
+                            <p class="facility-card-address">
+                                <span class="material-symbols-outlined">home</span> Jl. Prof. Soedarto, S.H., Kampus Universitas Diponegoro (Undip) Tembalang</p>
                             <a href="#" class="facility-card-link">Lihat detail ketersediaan →</a>
                         </div>
                     </article>
 
                     <article class="facility-card">
-                        <div class="facility-card-img-wrapper">
+                        <div class="facility-img-wrapper">
                             <img src="assets/images/Lab-Komputer-Gd-AP.png" alt="Laboratorium Komputer Terintegrasi - Gedung Acintya Prasada" class="facility-card-image">
-                            <span class="facility-card-availability">Tersedia</span>
+                            <span class="facility-card-availability available">Tersedia</span>
                         </div>
                         <div class="facility-card-content">
                             <span class="facility-card-type">Laboratorium</span>
                             <h3 class="facility-card-title">Laboratorium Komputer Terintegrasi - Gedung Acintya Prasada</h3>
-                            <p class="facility-card-location">FSM</p>
-                            <p class="facility-card-capacity">50 orang</p>
-                            <p class="facility-card-address">Jl. Prof. Jacob Rais, Tembalang</p>
+                            <p class="facility-card-location">
+                                <span class="material-symbols-outlined">location_on</span> FSM</p>
+                            <p class="facility-card-capacity">
+                                <span class="material-symbols-outlined">person</span> 50 orang</p>
+                            <p class="facility-card-address">
+                                <span class="material-symbols-outlined">home</span> Jl. Prof. Jacob Rais, Tembalang</p>
                             <a href="#" class="facility-card-link">Lihat detail ketersediaan →</a>
                         </div>
                     </article>
 
                     <article class="facility-card">
-                        <div class="facility-card-img-wrapper">
+                        <div class="facility-img-wrapper">
                             <img src="assets/images/Lab-Komputer-Gd-AP.png" alt="Laboratorium Komputer Terintegrasi - Gedung Acintya Prasada" class="facility-card-image">
-                            <span class="facility-card-availability">Tersedia</span>
+                            <span class="facility-card-availability available">Tersedia</span>
                         </div>
                         <div class="facility-card-content">
                             <span class="facility-card-type">Laboratorium</span>
                             <h3 class="facility-card-title">Laboratorium Komputer Terintegrasi - Gedung Acintya Prasada</h3>
-                            <p class="facility-card-location">FSM</p>
-                            <p class="facility-card-capacity">50 orang</p>
-                            <p class="facility-card-address">Jl. Prof. Jacob Rais, Tembalang</p>
+                            <p class="facility-card-location">
+                                <span class="material-symbols-outlined">location_on</span> FSM</p>
+                            <p class="facility-card-capacity">
+                                <span class="material-symbols-outlined">person</span> 50 orang</p>
+                            <p class="facility-card-address">
+                                <span class="material-symbols-outlined">home</span> Jl. Prof. Jacob Rais, Tembalang</p>
                             <a href="#" class="facility-card-link">Lihat detail ketersediaan →</a>
                         </div>
                     </article>
 
                     <article class="facility-card">
-                        <div class="facility-card-img-wrapper">
+                        <div class="facility-img-wrapper">
                             <img src="assets/images/gd-lab-bersama.png" alt="Gedung Laboratorium Terpadu" class="facility-card-image">
-                            <span class="facility-card-availability">Tersedia</span>
+                            <span class="facility-card-availability broken">Rusak</span>
                         </div>
                         <div class="facility-card-content">
                             <span class="facility-card-type">Laboratorium</span>
                             <h3 class="facility-card-title">Gedung Laboratorium Terpadu</h3>
-                            <p class="facility-card-location">Lainnya</p>
-                            <p class="facility-card-capacity">50 orang</p>
-                            <p class="facility-card-address">Jl. Prof. Soedarto, S.H., Tembalang</p>
+                            <p class="facility-card-location">
+                                <span class="material-symbols-outlined">location_on</span> Lainnya</p>
+                            <p class="facility-card-capacity">
+                                <span class="material-symbols-outlined">person</span> 50 orang</p>
+                            <p class="facility-card-address">
+                                <span class="material-symbols-outlined">home</span> Jl. Prof. Soedarto, S.H., Tembalang</p>
                             <a href="#" class="facility-card-link">Lihat detail ketersediaan →</a>
                         </div>
                     </article>
 
                     <article class="facility-card">
-                        <div class="facility-card-img-wrapper">
+                        <div class="facility-img-wrapper">
                             <img src="assets/images/lab-sentral-fk.png" alt="Laboratorium Sentral FK" class="facility-card-image">
-                            <span class="facility-card-availability">Tersedia</span>
+                            <span class="facility-card-availability available">Tersedia</span>
                         </div>
                         <div class="facility-card-content">
                             <span class="facility-card-type">Laboratorium</span>
                             <h3 class="facility-card-title">Laboratorium Sentral FK</h3>
-                            <p class="facility-card-location">Lainnya</p>
-                            <p class="facility-card-capacity">50 orang</p>
-                            <p class="facility-card-address">Jl. Prof. Moeljono S. Trastotenojo, Tembalang</p>
+                            <p class="facility-card-location">
+                                <span class="material-symbols-outlined">location_on</span> Lainnya</p>
+                            <p class="facility-card-capacity">
+                                <span class="material-symbols-outlined">person</span> 50 orang</p>
+                            <p class="facility-card-address">
+                                <span class="material-symbols-outlined">home</span> Jl. Prof. Moeljono S. Trastotenojo, Tembalang</p>
                             <a href="#" class="facility-card-link">Lihat detail ketersediaan →</a>
                         </div>
                     </article>
@@ -215,7 +240,6 @@
             </div>
         </section>
     </main>
-
     <footer class="footer">
         <div class="container">
             <p>© 2026 Sistem Reservasi & Pelaporan Fasilitas Kampus. All rights reserved. </p>
