@@ -18,26 +18,18 @@ function filterFacilities() {
         const location = card.dataset.location.toLowerCase();
         const capacity = card.dataset.capacity;
 
-        const matchesSearch =
-            searchKeyword === "" || name.includes(searchKeyword);
-        const matchesType =
-            selectedType === "" || type === selectedType;
-        const matchesLocation =
-            selectedLocation === "" || location === selectedLocation;
-        const matchesCapacity =
-            selectedCapacity === "" || capacity === selectedCapacity;
+        const matchesSearch = searchKeyword === "" || name.includes(searchKeyword);
+        const matchesType = selectedType === "" || type === selectedType;
+        const matchesLocation = selectedLocation === "" || location === selectedLocation;
+        const matchesCapacity = selectedCapacity === "" || capacity === selectedCapacity;
         const shouldShow = matchesSearch && matchesType && matchesLocation && matchesCapacity;
         card.style.display = shouldShow ? "" : "none";
     });
 }
 
-searchButton.addEventListener("click", () => {
-    filterFacilities();
-});
+searchButton.addEventListener("click", () => {filterFacilities();});
 
-applyFilterButton.addEventListener("click", () => {
-    filterFacilities();
-});
+applyFilterButton.addEventListener("click", () => {filterFacilities();});
 
 searchInput.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
