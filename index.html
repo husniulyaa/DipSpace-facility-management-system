@@ -42,8 +42,7 @@
                         Jelajahi Fasilitas Kampus
                     </span>
                     <h1 class="hero-title">Temukan tempat yang tepat untuk kegiatanmu</h1>
-                    <p class="hero-description">Cari fasilitas, cek ketersediaannya, dan ajukan
-peminjaman dengan mudah.</p>
+                    <p class="hero-description">Cari fasilitas, cek ketersediaannya, dan ajukan peminjaman dengan mudah.</p>
                 </div>
                 <div class="search-panel">
                     <div class="search-box">
@@ -62,45 +61,45 @@ peminjaman dengan mudah.</p>
                                 <label for="facility-type">Tipe Fasilitas</label>
                                 <select id="facility-type">
                                     <option value="">Semua tipe</option>
-                                    <option value="">Ruang Kelas</option>
-                                    <option value="">Laboratorium</option>
-                                    <option value="">Gor</option>
-                                    <option value="">Lapangan</option>
-                                    <option value="">Stadion</option>
-                                    <option value="">Gedung/Aula</option>
-                                    <option value="">Outdoor Area</option>
-                                    <option value="">Masjid</option>
+                                    <option value="Ruang Kelas">Ruang Kelas</option>
+                                    <option value="Laboratorium">Laboratorium</option>
+                                    <option value="Gor">Gor</option>
+                                    <option value="Lapangan">Lapangan</option>
+                                    <option value="Stadion">Stadion</option>
+                                    <option value="Gedung/Aula">Gedung/Aula</option>
+                                    <option value="Outdoor Area">Outdoor Area</option>
+                                    <option value="Masjid">Masjid</option>
                                 </select>
                             </div>
                             <div class="filter-group">
                                 <label for="facility-location">Lokasi</label>
                                 <select id="facility-location">
                                     <option value="">Semua lokasi</option>
-                                    <option value="">FH</option>
-                                    <option value="">FEB</option>
-                                    <option value="">FT</option>
-                                    <option value="">FK</option>
-                                    <option value="">FPP</option>
-                                    <option value="">FIB</option>
-                                    <option value="">FISIP</option>
-                                    <option value="">FSM</option>
-                                    <option value="">FKM</option>
-                                    <option value="">FPIK</option>
-                                    <option value="">FPSI</option>
-                                    <option value="">SV</option>
-                                    <option value="">Lainnya</option>
+                                    <option value="FH">FH</option>
+                                    <option value="FEB">FEB</option>
+                                    <option value="FT">FT</option>
+                                    <option value="FK">FK</option>
+                                    <option value="FPP">FPP</option>
+                                    <option value="FIB">FIB</option>
+                                    <option value="FISIP">FISIP</option>
+                                    <option value="FSM">FSM</option>
+                                    <option value="FKM">FKM</option>
+                                    <option value="FPIK">FPIK</option>
+                                    <option value="FPSI">FPSI</option>
+                                    <option value="SV">SV</option>
+                                    <option value="Lainnya">Lainnya</option>
                                 </select>
                             </div>
                             <div class="filter-group">
                                 <label for="facility-capacity">Kapasitas</label>
                                 <select id="facility-capacity">
                                     <option value="">Semua kapasitas</option>
-                                    <option value="">50</option>
-                                    <option value="">100</option>
-                                    <option value="">200</option>
-                                    <option value="">1000</option>
-                                    <option value="">±5000</option>
-                                    <option value="">Lainnya</option>
+                                    <option value="50">50</option>
+                                    <option value="100">100</option>
+                                    <option value="200">200</option>
+                                    <option value="1000">1000</option>
+                                    <option value="5000">5000</option>
+                                    <option value="Lainnya">Lainnya</option>
                                 </select>
                             </div>
                         </div>
@@ -111,7 +110,13 @@ peminjaman dengan mudah.</p>
         <section class="facility-section">
             <div class="container">
                 <div class="facility-grid">
-                    <article class="facility-card"> 
+                    <article
+                        class="facility-card"
+                        data-name="Muladi Dome"
+                        data-type="Gedung/Aula"
+                        data-location="Lainnya"
+                        data-capacity="5000"
+                    >
                         <div class="facility-img-wrapper">
                             <img src="assets/images/muladi-dome.png" alt="Muladi Dome" class="facility-card-image">
                             <span class="facility-card-availability">Tersedia</span>
@@ -122,14 +127,20 @@ peminjaman dengan mudah.</p>
                             <p class="facility-card-location">
                                 <span class="material-symbols-outlined">location_on</span> Lainnya</p>
                             <p class="facility-card-capacity">
-                                <span class="material-symbols-outlined">person</span> ±5000 orang</p>
+                                <span class="material-symbols-outlined">person</span> 5000 orang</p>
                             <p class="facility-card-address">
                                 <span class="material-symbols-outlined">home</span> Jl. Prof. Soedarto No.50239, Tembalang</p>
                             <a href="#" class="facility-card-link">Lihat detail ketersediaan →</a>
                         </div>
                     </article>
 
-                    <article class="facility-card">
+                    <article
+                        class="facility-card"
+                        data-name="Polytron Stadium"
+                        data-type="Stadion"
+                        data-location="Lainnya"
+                        data-capacity="300"
+                    >
                         <div class="facility-img-wrapper">
                             <img src="assets/images/polytron-stadium.png" alt="Polytron Stadium Undip" class="facility-card-image">
                             <span class="facility-card-availability available">Tersedia</span>
@@ -147,7 +158,13 @@ peminjaman dengan mudah.</p>
                         </div>
                     </article>
 
-                    <article class="facility-card">
+                    <article
+                        class="facility-card"
+                        data-name="Gedung Auditorium Prof. Soedarto, S.H."
+                        data-type="Gedung/Aula"
+                        data-location="Lainnya"
+                        data-capacity="800"
+                    >
                         <div class="facility-img-wrapper">
                             <img src="assets/images/Gd-Auditorium-Prof.-Soedarto.png" alt="Gedung Auditorium Prof. Soedarto, S. H" class="facility-card-image">
                             <span class="facility-card-availability maintenance">Dalam perbaikan</span>
@@ -165,7 +182,13 @@ peminjaman dengan mudah.</p>
                         </div>
                     </article>
 
-                    <article class="facility-card">
+                    <article
+                        class="facility-card"
+                        data-name="Laboratorium Komputer Terintegrasi - Gedung Acintya Prasada"
+                        data-type="Laboratorium"
+                        data-location="FSM"
+                        data-capacity="50"
+                    >
                         <div class="facility-img-wrapper">
                             <img src="assets/images/Lab-Komputer-Gd-AP.png" alt="Laboratorium Komputer Terintegrasi - Gedung Acintya Prasada" class="facility-card-image">
                             <span class="facility-card-availability available">Tersedia</span>
@@ -183,7 +206,13 @@ peminjaman dengan mudah.</p>
                         </div>
                     </article>
 
-                    <article class="facility-card">
+                    <article
+                        class="facility-card"
+                        data-name="Laboratorium Komputer Terintegrasi - Gedung Acintya Prasada"
+                        data-type="Laboratorium"
+                        data-location="FSM"
+                        data-capacity="50"
+                    >
                         <div class="facility-img-wrapper">
                             <img src="assets/images/Lab-Komputer-Gd-AP.png" alt="Laboratorium Komputer Terintegrasi - Gedung Acintya Prasada" class="facility-card-image">
                             <span class="facility-card-availability available">Tersedia</span>
@@ -201,7 +230,13 @@ peminjaman dengan mudah.</p>
                         </div>
                     </article>
 
-                    <article class="facility-card">
+                    <article
+                        class="facility-card"
+                        data-name="Gedung Laboratorium Terpadu"
+                        data-type="Laboratorium"
+                        data-location="Lainnya"
+                        data-capacity="50"
+                    >
                         <div class="facility-img-wrapper">
                             <img src="assets/images/gd-lab-bersama.png" alt="Gedung Laboratorium Terpadu" class="facility-card-image">
                             <span class="facility-card-availability broken">Rusak</span>
@@ -219,7 +254,13 @@ peminjaman dengan mudah.</p>
                         </div>
                     </article>
 
-                    <article class="facility-card">
+                    <article
+                        class="facility-card"
+                        data-name="Laboratorium Sentral FK"
+                        data-type="Laboratorium"
+                        data-location="Lainnya"
+                        data-capacity="50"
+                    >
                         <div class="facility-img-wrapper">
                             <img src="assets/images/lab-sentral-fk.png" alt="Laboratorium Sentral FK" class="facility-card-image">
                             <span class="facility-card-availability available">Tersedia</span>
@@ -245,5 +286,6 @@ peminjaman dengan mudah.</p>
             <p>© 2026 Sistem Reservasi & Pelaporan Fasilitas Kampus. All rights reserved. </p>
         </div>
     </footer>
+    <script src="assets/js/catalog.js"></script>
 </body>
 </html>

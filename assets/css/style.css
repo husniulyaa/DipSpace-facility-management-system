@@ -655,6 +655,11 @@ button {
   overflow: hidden;
 }
 
+.facility-card-address .material-symbols-outlined{
+  font-size: 16px;
+  color: var(--text-muted);
+}
+
 .facility-card-link {
   display: inline-flex;
   align-items: center;
