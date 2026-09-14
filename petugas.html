@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Petugas - SIAGA DIPS</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/petugas.css">
+</head>
+<body>
+
+<div class="dashboard-wrapper">
+  
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="icon">
+        <span class="material-symbols-outlined">domain</span>
+      </div>
+      <div>
+        <h2>SIAGA DIPS</h2>
+        <span>Portal Petugas</span>
+      </div>
+    </div>
+    
+    <div class="sidebar-nav">
+      <p class="nav-label">Manajemen Operasional</p>
+      
+      <div class="nav-item active" id="nav-btn-queue" onclick="switchTab('tab-queue')">
+        <div class="nav-item-left">
+          <span class="material-symbols-outlined">pending_actions</span>
+          <span>Antrean Pengajuan</span>
+        </div>
+        <span class="badge warning" id="badge-queue-count">1</span>
+      </div>
+      
+      <div class="nav-item" id="nav-btn-damage" onclick="switchTab('tab-damage')">
+        <div class="nav-item-left">
+          <span class="material-symbols-outlined">build</span>
+          <span>Resolusi Kerusakan</span>
+        </div>
+      </div>
+      
+      <div class="nav-item" id="nav-btn-maintenance" onclick="switchTab('tab-maintenance')">
+        <div class="nav-item-left">
+          <span class="material-symbols-outlined">construction</span>
+          <span>Status Pemeliharaan</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="sidebar-footer">
+      <div class="user-profile">
+        <div class="user-avatar">AP</div>
+        <div class="user-info">
+          <p>Arif Pratama</p>
+          <span>Petugas</span>
+        </div>
+      </div>
+      <button class="logout-btn" onclick="window.location.href='login.html'">
+        <span class="material-symbols-outlined">logout</span> Logout
+      </button>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
+    
+    <!-- KPI STATS -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div>
+          <p class="stat-label">Antrean Menunggu</p>
+          <h3 class="stat-value text-primary" id="stat-pending">1</h3>
+        </div>
+        <div class="stat-icon warning"><span class="material-symbols-outlined">outbox</span></div>
+      </div>
+      <div class="stat-card">
+        <div>
+          <p class="stat-label">Laporan Baru</p>
+          <h3 class="stat-value text-danger">1</h3>
+        </div>
+        <div class="stat-icon danger"><span class="material-symbols-outlined">report</span></div>
+      </div>
+      <div class="stat-card">
+        <div>
+          <p class="stat-label">Sedang Diproses</p>
+          <h3 class="stat-value">1</h3>
+        </div>
+        <div class="stat-icon primary"><span class="material-symbols-outlined">pending_actions</span></div>
+      </div>
+      <div class="stat-card">
+        <div>
+          <p class="stat-label">Dalam Perbaikan</p>
+          <h3 class="stat-value">1</h3>
+        </div>
+        <div class="stat-icon neutral"><span class="material-symbols-outlined">construction</span></div>
+      </div>
+    </div>
+
+    <!-- ANTREAN PENGAJUAN DAN PERSETUJUAN RESERVASI (US8, US9, US10) -->
+    <div id="tab-queue" class="tab-content">
+      <h2 class="page-title">Antrean Pengajuan Reservasi</h2>
+      <p class="page-subtitle">Tinjau dan proses pengajuan reservasi yang masuk.</p>
+      
+      <div class="table-card">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Pemohon</th>
+              <th>Fasilitas & Jadwal</th>
+              <th>Tujuan Kegiatan</th>
+              <th>Status Sistem</th>
+              <th class="text-center">Aksi</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr id="row-queue-1">
+              <td>
+                <div class="font-bold">Husni Ulyaa Khanifah</div>
+                <div class="text-sm text-muted">24060124120021</div>
+                <div class="user-role">Mahasiswa</div>
+              </td>
+              <td>
+                <div class="font-bold">Laboratorium Komputer Terintegrasi - Gedung Acintya Prasada</div>
+                <div class="text-sm text-muted">25 Oktober 2025</div>
+                <div class="text-sm text-muted">08:00 - 11:30 WIB</div>
+              </td>
+              <td>Pelatihan UI/UX Design</td>
+              <td><span class="badge warning">Menunggu</span></td>
+              <td class="text-center">
+                <div class="action-buttons">
+                  <button class="btn btn-primary" onclick="approveQueue('row-queue-1')">Setujui</button>
+                  <button class="btn btn-outline" onclick="rejectQueue('row-queue-1')">Tolak</button>
+                </div>
+              </td>
+            </tr>
+            <tr id="row-queue-2">
+              <td>
+                <div class="font-bold">Lintang Aulia Nuraini</div>
+                <div class="text-sm text-muted">24060124120017</div>
+                <div class="user-role">Mahasiswa</div>
+              </td>
+              <td>
+                <div class="font-bold">Muladi Dome</div>
+                <div class="text-sm text-muted">28 Oktober 2026</div>
+                <div class="text-sm text-muted">13:00 - 16:00 WIB</div>
+              </td>
+              <td>Seminar Generative AI untuk Mahasiswa Informatika</td>
+              <td><span class="badge success">Disetujui</span></td>
+              <td class="text-center">
+                <button class="btn btn-danger" onclick="openEmergencyModal('row-queue-2')">
+                  <span class="material-symbols-outlined icon-sm">warning</span> Batalkan Darurat!
+                </button>
+              </td>
+            </tr>
+            <tr id="row-queue-3">
+              <td>
+                <div class="font-bold">Hana Nafi'atul Haq</div>
+                <div class="text-sm text-muted">24060124130081</div>
+                <div class="user-role">Mahasiswa</div>
+              </td>
+              <td>
+                <div class="font-bold">Gedung Auditorium Prof. Soedarto, S.H.</div>
+                <div class="text-sm text-muted">30 Oktober 2026</div>
+                <div class="text-sm text-muted">09:00 - 12:00 WIB</div>
+            </td>
+            <td>Gathering Maba Informatika</td>
+            <td><span class="badge danger">Ditolak</span></td>
+            <td class="text-center">
+                <span class="text-sm text-muted text-italic">Gedung sedang dalam perbaikan.</span>
+            </td>
+            </tr>
+            <tr id="row-queue-4">
+              <td>
+                <div class="font-bold">Birela Miadeta Purita</div>
+                <div class="text-sm text-muted">24060124120002</div>
+                <div class="user-role">Mahasiswa</div>
+              </td>
+              <td>
+                <div class="font-bold">Polytron Stadium</div>
+                <div class="text-sm text-muted">02 November 2026</div>
+                <div class="text-sm text-muted">10:00 - 14:00 WIB</div>
+              </td>
+              <td>Pertandingan Badminton Tingkat Fakultas</td>
+              <td><span class="badge neutral">Dibatalkan</span></td>
+              <td class="text-center">
+                <span class="text-sm text-muted text-italic">Dialihkan untuk acara universitas.</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- RESOLUSI KERUSAKAN (US11) -->
+    <div id="tab-damage" class="tab-content hidden">
+      <h2 class="page-title">Manajemen Laporan Kerusakan</h2>
+      <p class="page-subtitle">Perbarui status perbaikan sarana dan isi catatan resolusi saat ditutup.</p>
+      
+      <div class="table-card">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Fasilitas</th>
+              <th>Kendala Dilaporkan</th>
+              <th>Status Laporan</th>
+              <th class="text-center">Tindakan</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr id="row-damage-1">
+              <td><div class="font-bold">Laboratorium Sentral FK</div></td>
+              <td>Kerusakan pada instalasi listrik utama, teknisi sedang melakukan pengecekan.</td>
+              <td><span class="badge neutral">Baru</span></td>
+              <td class="text-center">
+                <button class="btn btn-primary" onclick="openResolutionModal('row-damage-1')">Proses</button>
+              </td>
+            </tr>
+            <tr id="row-damage-2">
+              <td><div class="font-bold">Gedung Auditorium Prof. Soedarto, S.H.</div></td>
+              <td>Ditemukan kebocoran pada beberapa bagian atap gedung yang menyebabkan rembesan air ke area dalam.</td>
+              <td><span class="badge warning">Diproses</span></td>
+              <td class="text-center">
+                <button class="btn btn-primary" onclick="openResolutionModal('row-damage-2')">Tandai Selesai</button>
+              </td>
+            </tr>
+            <tr id="row-damage-3">
+              <td><div class="font-bold">Laboratorium Komputer Terintegrasi - Gedung Acintya Prasada</div></td>
+              <td>Beberapa kursi dan meja komputer mengalami kerusakan dan perlu diperbaiki.</td>
+              <td><span class="badge success">Selesai</span></td>
+              <td class="text-center">
+                <span class="text-sm text-muted text-italic">Resolusi: Penggantian dan perbaikan unit kursi</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- STATUS PEMELIHARAAN (US12) -->
+    <div id="tab-maintenance" class="tab-content hidden">
+      <h2 class="page-title">Status Operasional Fasilitas</h2>
+      <p class="page-subtitle">Kunci jadwal publik secara otomatis dengan mengubah status fasilitas menjadi "Dalam Perbaikan".</p>
+      
+      <div class="table-card">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Nama Fasilitas</th>
+              <th>Lokasi</th>
+              <th>Status Saat Ini</th>
+              <th class="text-center">Ubah Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr id="row-ops-1">
+              <td><div class="font-bold">Muladi Dome</div></td>
+              <td>Lainnya</td>
+              <td><span class="badge success">Aktif Normal</span></td>
+              <td class="text-center">
+                <button class="btn btn-outline" onclick="toggleMaintenance('row-ops-1')">Set "Perbaikan"</button>
+              </td>
+            </tr>
+            <tr id="row-ops-2">
+              <td><div class="font-bold">Polytron Stadium</div></td>
+              <td>Lainnya</td>
+              <td><span class="badge success">Aktif Normal</span></td>
+              <td class="text-center">
+                <button class="btn btn-outline" onclick="toggleMaintenance('row-ops-2')">Set "Perbaikan"</button>
+              </td>
+            </tr>
+            <tr id="row-ops-3">
+              <td><div class="font-bold">Gedung Auditorium Prof. Soedarto, S.H.</div></td>
+              <td>Lainnya</td>
+              <td><span class="badge danger">Dalam Perbaikan</span></td>
+              <td class="text-center">
+                <button class="btn btn-primary" onclick="toggleMaintenance('row-ops-3')">Aktifkan Kembali</button>
+              </td>
+            </tr>
+            <tr id="row-ops-4">
+              <td><div class="font-bold">Laboratorium Komputer Terintegrasi - Gedung Acintya Prasada</div></td>
+              <td>FSM</td>
+              <td><span class="badge success">Aktif Normal</span></td>
+              <td class="text-center">
+                <button class="btn btn-outline" onclick="toggleMaintenance('row-ops-4')">Set "Perbaikan"</button>
+              </td>
+            </tr>
+            <tr id="row-ops-5">
+              <td><div class="font-bold">Gedung Laboratorium Terpadu</div></td>
+              <td>Lainnya</td>
+              <td><span class="badge success">Aktif Normal</span></td>
+              <td class="text-center">
+                <button class="btn btn-outline" onclick="toggleMaintenance('row-ops-5')">Set "Perbaikan"</button>
+              </td>
+            </tr>
+            <tr id="row-ops-6">
+              <td><div class="font-bold">Laboratorium Sentral FK</div></td>
+              <td>Lainnya</td>
+              <td><span class="badge success">Aktif Normal</span></td>
+              <td class="text-center">
+                <button class="btn btn-outline" onclick="toggleMaintenance('row-ops-6')">Set "Perbaikan"</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- MODAL PEMBATALAN DARURAT-->
+<div id="modal-emergency" class="modal-overlay hidden">
+  <div class="modal-box">
+    <h3 class="modal-title text-danger">Pembatalan Darurat</h3>
+    <p class="text-sm text-muted">Masukkan alasan pembatalan untuk reservasi yang sudah disetujui sebelumnya.</p>
+    <div class="modal-form">
+      <textarea id="emergency-reason" rows="3" placeholder="Contoh: Gedung dialihkan untuk keperluan mendadak..."></textarea>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-outline" onclick="closeModal('modal-emergency')">Batal</button>
+      <button class="btn btn-danger" onclick="confirmEmergency()">Kirim & Batalkan</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL RESOLUSI PERBAIKAN -->
+<div id="modal-resolution" class="modal-overlay hidden">
+  <div class="modal-box">
+    <h3 class="modal-title text-success">Catatan Resolusi</h3>
+    <p class="text-sm text-muted">Jelaskan tindakan teknis yang telah diambil untuk menyelesaikan laporan.</p>
+    <div class="modal-form">
+      <textarea id="resolution-note" rows="3" placeholder="Contoh: Instalasi listrik telah diperbaiki dan diuji normal..."></textarea>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-outline" onclick="closeModal('modal-resolution')">Tutup</button>
+      <button class="btn btn-primary" onclick="confirmResolution()">Simpan Resolusi</button>
+    </div>
+  </div>
+</div>
+
+<script src="assets/js/petugas.js"></script>
+</body>
+</html>
