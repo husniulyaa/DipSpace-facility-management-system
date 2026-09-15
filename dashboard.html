@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Pengguna - SIAGA DIPS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+</head>
+<body>
+    <header class="dashboard-navbar">
+        <div class="dashboard-navbar-left">
+            <a href="index.html" class="dashboard-brand">
+                <div class="dashboard-logo">
+                    <img src="assets/images/logo-patung-kuda-undip.png" alt="Logo UNDIP">
+                </div>
+                <div class="dashboard-brand-text">
+                    <h1>SIAGA DIPS</h1>
+                    <span>Sistem Informasi Akses dan Pengelolaan Fasilitas Universitas Diponegoro</span>
+                </div>
+            </a>
+        </div>
+        <div class="dashboard-navbar-right">
+            <div class="dashboard-user">
+                <div class="dashboard-user-icon">
+                    <span class="material-symbols-outlined">person</span>
+                </div>
+                <div class="dashboard-user-info">
+                    <strong>Husni</strong>
+                    <span>Pengguna</span>
+                </div>
+            </div>
+            <button type="button" class="dashboard-logout" id="logout-button">
+                <span class="material-symbols-outlined">logout</span>
+            </button>
+        </div>
+    </header>
+    <main class="dashboard-main">
+        <section class="dashboard-welcome">
+            <div>
+                <p class="dashboard-label">Dashboard Pengguna</p>
+                <h2>Selamat datang kembali, Husni</h2>
+                <p>Kelola reservasi dan laporan fasilitas kampusmu dengan mudah</p>
+            </div>
+            <div class="dashboard-action-buttons">
+                <a href="reservation.html" class="dashboard-primary-button">
+                    <span class="material-symbols-outlined">add</span>
+                    Ajukan Reservasi
+                </a>
+                <a href="report.html" class="dashboard-secondary-button">
+                    <span class="material-symbols-outlined">report_problem</span>
+                    Laporkan Masalah
+                </a>
+            </div>
+        </section>
+        <section class="dashboard-statistics">
+            <div class="dashboard-stat-card">
+                <div class="dashboard-stat-icon">
+                    <span class="material-symbols-outlined">calendar_month</span>
+                </div>
+                <div>
+                    <span>Total Reservasi</span>
+                    <strong>5</strong>
+                </div>
+            </div>
+            <div class="dashboard-stat-card">
+                <div class="dashboard-stat-icon">
+                    <span class="material-symbols-outlined">pending_actions</span>
+                </div>
+                <div>
+                    <span>Menunggu</span>
+                    <strong>2</strong>
+                </div>
+            </div>
+            <div class="dashboard-stat-card">
+                <div class="dashboard-stat-icon">
+                    <span class="material-symbols-outlined">check_circle</span>
+                </div>
+                <div>
+                    <span>Disetujui</span>
+                    <strong>2</strong>
+                </div>
+            </div>
+            <div class="dashboard-stat-card">
+                <div class="dashboard-stat-icon">
+                    <span class="material-symbols-outlined">report</span>
+                </div>
+                <div>
+                    <span>Laporan Aktif</span>
+                    <strong>1</strong>
+                </div>
+            </div>
+        </section>
+        <section class="dashboard-section">
+            <div class="dashboard-section-header">
+                <div>
+                    <h2>Reservasi Saya</h2>
+                    <p>Daftar pengajuan reservasi fasilitas kamu.</p>
+                </div>
+                <a href="reservations.html" class="dashboard-view-all">Lihat Semua</a>
+            </div>
+            <div class="dashboard-table-wrapper">
+                <table class="dashboard-table">
+                    <thead>
+                        <tr>
+                            <th>Fasilitas</th>
+                            <th>Tanggal</th>
+                            <th>Waktu</th>
+                            <th>Keperluan</th>
+                            <th>Status</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <strong>Muladi Dome</strong>
+                            </td>
+                            <td>20 Sep 2026</td>
+                            <td>10:00–17:00</td>
+                            <td>Seminar</td>
+                            <td>
+                                <span class="dashboard-status approved">Disetujui</span>
+                            </td>
+                            <td>
+                                <button type="button" class="dashboard-table-action reservation-detail-button" data-facility="Muladi Dome" data-date="20 September 2026" data-time="10:00 - 17:00" data-purpose="Seminar" data-status="Disetujui" data-status-class="approved" data-file="Proposal_Seminar.pdf" data-submitted="15 September 2026, 14:32" data-cancellation-deadline="2026-09-19T10:00:00">
+                                    Lihat
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>Auditorium</strong>
+                            </td>
+                            <td>25 Sep 2026</td>
+                            <td>08:00–12:00</td>
+                            <td>Rapat</td>
+                            <td>
+                                <span class="dashboard-status pending">Menunggu</span>
+                            </td>
+                            <td>
+                                <button type="button" class="dashboard-table-action reservation-detail-button" data-facility="Auditorium" data-date="25 September 2026" data-time="08:00 - 12:00" data-purpose="Rapat" data-status="Menunggu Persetujuan" data-status-class="pending" data-file="Surat_Izin_Kegiatan.pdf" data-submitted="18 September 2026, 09:15" data-cancellation-deadline="2026-09-19T10:00:00">
+                                    Lihat
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <strong>Lab Komputer Terintegrasi</strong>
+                            </td>
+                            <td>28 Sep 2026</td>
+                            <td>13:00–16:00</td>
+                            <td>Praktikum</td>
+                            <td>
+                                <span class="dashboard-status rejected">Ditolak</span>
+                            </td>
+                            <td>
+                                <button type="button" class="dashboard-table-action reservation-detail-button" data-facility="Lab Komputer Terintegrasi" data-date="28 September 2026" data-time="13:00 - 16:00" data-purpose="Praktikum" data-status="Ditolak" data-status-class="rejected" data-file="Jadwal_Praktikum.pdf" data-submitted="20 September 2026, 11:20" data-cancellation-deadline="2026-09-19T10:00:00">
+                                    Lihat
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <section class="dashboard-section">
+            <div class="dashboard-section-header">
+                <div>
+                    <p class="dashboard-label">Laporan Fasilitas</p>
+                    <h3>Laporan Saya</h3>
+                    <p>Pantau laporan kerusakan fasilitas yang kamu kirim.</p>
+                </div>
+                <a href="report.html" class="dashboard-secondary-button">
+                    <span class="material-symbols-outlined">add</span>
+                    Buat Laporan
+                </a>
+            </div>
+            <div class="report-status-summary">
+                <div class="report-status-card">
+                    <span>Total</span>
+                    <strong>3</strong>
+                </div>
+                <div class="report-status-card">
+                    <span>Baru</span>
+                    <strong>1</strong>
+                </div>
+                <div class="report-status-card">
+                    <span>Diproses</span>
+                    <strong>1</strong>
+                </div>
+                <div class="report-status-card">
+                    <span>Selesai</span>
+                    <strong>1</strong>
+                </div>
+                <div class="report-status-card">
+                    <span>Ditolak</span>
+                    <strong>0</strong>
+                </div>
+            </div>
+            <div class="dashboard-table-wrapper">
+                <table class="dashboard-table report-table">
+                    <thead>
+                        <tr>
+                            <th>Fasilitas</th>
+                            <th>Kategori</th>
+                            <th>Tanggal</th>
+                            <th>Status</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Lab Komputer Terintegrasi</strong></td>
+                            <td>Peralatan Rusak</td>
+                            <td>15 Sep 2026</td>
+                            <td>
+                                <span class="report-status processing">Diproses</span>
+                            </td>
+                            <td>
+                                <button type="button"
+                                    class="dashboard-table-action report-detail-button"
+                                    data-facility="Lab Komputer Terintegrasi"
+                                    data-category="Peralatan Rusak"
+                                    data-location="Lantai 2"
+                                    data-date="15 September 2026"
+                                    data-status="Diproses"
+                                    data-status-class="processing"
+                                    data-description="Salah satu komputer tidak dapat digunakan karena monitor tidak menyala."
+                                    data-photo="Foto kerusakan tersedia"
+                                    data-note="Petugas sedang melakukan pengecekan perangkat.">
+                                    Lihat
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Auditorium</strong></td>
+                            <td>Kelistrikan</td>
+                            <td>12 Sep 2026</td>
+                            <td>
+                                <span class="report-status completed">Selesai</span>
+                            </td>
+                            <td>
+                                <button type="button"
+                                    class="dashboard-table-action report-detail-button"
+                                    data-facility="Auditorium"
+                                    data-category="Kelistrikan"
+                                    data-location="Lantai 1"
+                                    data-date="12 September 2026"
+                                    data-status="Selesai"
+                                    data-status-class="completed"
+                                    data-description="Lampu pada bagian belakang auditorium tidak menyala."
+                                    data-photo="Foto kerusakan tersedia"
+                                    data-note="Lampu telah diganti dan fasilitas sudah dapat digunakan kembali.">
+                                    Lihat
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Gedung Laboratorium Terpadu</strong></td>
+                            <td>Kebersihan</td>
+                            <td>10 Sep 2026</td>
+                            <td>
+                                <span class="report-status new">Baru</span>
+                            </td>
+                            <td>
+                                <button type="button"
+                                    class="dashboard-table-action report-detail-button"
+                                    data-facility="Gedung Laboratorium Terpadu"
+                                    data-category="Kebersihan"
+                                    data-location="Lantai 3"
+                                    data-date="10 September 2026"
+                                    data-status="Baru"
+                                    data-status-class="new"
+                                    data-description="Area sekitar ruang laboratorium perlu dibersihkan karena terdapat sampah dan debu."
+                                    data-photo="Tidak ada foto"
+                                    data-note="Laporan telah diterima dan menunggu pemeriksaan petugas.">
+                                    Lihat
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+    <div class="reservation-detail-overlay" id="reservation-detail-overlay">
+        <div class="reservation-detail-box">
+            <div class="reservation-detail-header">
+                <div class="reservation-detail-title-wrapper">
+                    <p class="dashboard-label">Detail Reservasi</p>
+                    <h2 class="reservation-detail-title" id="detail-facility-name">Muladi Dome</h2>
+                </div>
+                <button type="button" class="reservation-detail-close" id="reservation-detail-close" aria-label="Tutup">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <div class="reservation-detail-content">
+                <div class="reservation-detail-item">
+                    <span class="reservation-detail-item-label">Nama fasilitas</span>
+                    <strong id="detail-facility">Muladi Dome</strong>
+                </div>
+                <div class="reservation-detail-item">
+                    <span class="reservation-detail-item-label">Status</span>
+                    <span class="dashboard-status pending" id="detail-status">Menunggu Persetujuan</span>
+                </div>
+                <div class="reservation-detail-item">
+                    <span class="reservation-detail-item-label">Tanggal penggunaan</span>
+                    <strong id="detail-date">20 September 2026</strong>
+                </div>
+                <div class="reservation-detail-item">
+                    <span class="reservation-detail-item-label">Waktu penggunaan</span>
+                    <strong id="detail-time">10:00 - 17:00</strong>
+                </div>
+                <div class="reservation-detail-item">
+                    <span class="reservation-detail-item-label">Keperluan</span>
+                    <strong id="detail-purpose">Seminar</strong>
+                </div>
+                <div class="reservation-detail-item">
+                    <span class="reservation-detail-item-label">Berkas pendukung</span>
+                    <strong id="detail-file">Proposal_Seminar.pdf</strong>
+                </div>
+                <div class="reservation-detail-item">
+                    <span class="reservation-detail-item-label">Waktu pengajuan</span>
+                    <strong id="detail-submitted">15 September 2026, 14:32</strong>
+                </div>
+            </div>
+            <div class="reservation-cancellation-info">
+                <div class="reservation-detail-item">
+                    <span class="reservation-detail-item-label">Batas pembatalan</span>
+                    <strong id="detail-cancellation-deadline">19 September 2026, 10:00</strong>
+                </div>
+                <p>Reservasi dapat dibatalkan paling lambat 24 jam sebelum waktu mulai penggunaan</p>
+            </div>
+            <div class="reservation-detail-footer">
+                <button type="button" class="dashboard-danger-button" id="reservation-cancel-button">
+                    Batalkan Reservasi
+                </button>
+                <button type="button" class="dashboard-secondary-button" id="reservation-detail-cancel">
+                    Tutup
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="report-detail-overlay" id="report-detail-overlay">
+        <div class="report-detail-modal">
+            <div class="report-detail-header">
+                <div>
+                    <p class="dashboard-label">Detail Laporan</p>
+                    <h2 id="report-detail-facility">Lab Komputer Terintegrasi</h2>
+                </div>
+                <button type="button" class="report-detail-close" id="report-detail-close" aria-label="Tutup">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <div class="report-detail-body">
+                <div class="report-detail-status-box">
+                    <span>Status Laporan</span>
+                    <strong id="report-detail-status" class="report-status processing">Diproses</strong>
+                </div>
+                <div class="report-detail-grid">
+                    <div class="report-detail-item">
+                        <span>Fasilitas</span>
+                        <strong id="report-detail-facility-name">Lab Komputer Terintegrasi</strong>
+                    </div>
+                    <div class="report-detail-item">
+                        <span>Kategori</span>
+                        <strong id="report-detail-category">Peralatan Rusak</strong>
+                    </div>
+                    <div class="report-detail-item">
+                        <span>Lokasi</span>
+                        <strong id="report-detail-location">Lantai 2</strong>
+                    </div>
+                    <div class="report-detail-item">
+                        <span>Tanggal laporan</span>
+                        <strong id="report-detail-date">15 September 2026</strong>
+                    </div>
+                </div>
+                <div class="report-detail-description">
+                    <span>Deskripsi Masalah</span>
+                    <p id="report-detail-description">
+                        Salah satu komputer tidak dapat digunakan karena monitor tidak menyala.
+                    </p>
+                </div>
+                <div class="report-detail-item report-detail-photo">
+                    <span>Foto Kerusakan</span>
+                    <strong id="report-detail-photo">Foto kerusakan tersedia</strong>
+                </div>
+                <div class="report-detail-note">
+                    <span>Catatan Petugas</span>
+                    <p id="report-detail-note">
+                        Petugas sedang melakukan pengecekan perangkat.
+                    </p>
+                </div>
+            </div>
+            <div class="report-detail-footer">
+                <button type="button" class="report-detail-button" id="report-detail-cancel">
+                    Tutup
+                </button>
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/dashboard.js"></script>
+</body>
+</html>
