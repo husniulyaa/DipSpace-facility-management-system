@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajukan Reservasi - SIAGA DIPS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/reservation.css">
+</head>
+<body>
+    <header class="reservation-navbar">
+        <a href="dashboard.html" class="reservation-brand">
+            <div class="reservation-logo"><img src="assets/images/logo-patung-kuda-undip.png" alt="Logo UNDIP"></div>
+            <div class="reservation-brand-text">
+                <h1>SIAGA DIPS</h1>
+                <span>Sistem Informasi Akses dan Pengelolaan Fasilitas Universitas Diponegoro</span>
+            </div>
+        </a>
+        <a href="dashboard.html" class="reservation-back">
+            <span class="material-symbols-outlined">arrow_back</span>
+            Kembali ke Dashboard
+        </a>
+    </header>
+    <main class="reservation-main">
+        <section class="reservation-header">
+            <p class="reservation-label">Reservasi Fasilitas</p>
+            <h2>Ajukan Reservasi</h2>
+            <p>Isi informasi penggunaan fasilitas untuk mengajukan reservasi.</p>
+        </section>
+        <section class="reservation-card">
+            <form class="reservation-form" id="reservation-form">
+                <div class="reservation-section">
+                    <div class="reservation-section-title">
+                        <span class="material-symbols-outlined">location_on</span>
+                        <div>
+                            <h3>Fasilitas</h3>
+                            <p>Pilih fasilitas yang ingin digunakan</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="facility">Fasilitas <span class="required-mark">*</span></label>
+                        <select id="facility" name="facility" required>
+                            <option value="">Pilih fasilitas</option>
+                            <option value="muladi-dome">Muladi Dome</option>
+                            <option value="polytron">Gedung Serbaguna Polytron</option>
+                            <option value="auditorium">Auditorium</option>
+                            <option value="lab-komputer">Lab Komputer Terintegrasi</option>
+                            <option value="gedung-laboratorium">Gedung Laboratorium Terpadu</option>
+                            <option value="laboratorium-sentral">Laboratorium Sentral FK</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="reservation-divider"></div>
+                <div class="reservation-section">
+                    <div class="reservation-section-title">
+                        <span class="material-symbols-outlined">calendar_month</span>
+                        <div>
+                            <h3>Waktu Penggunaan</h3>
+                            <p>Tentukan tanggal dan waktu penggunaan fasilitas</p>
+                        </div>
+                    </div>
+                    <div class="reservation-form-grid">
+                        <div class="form-group">
+                            <label for="start-date">Tanggal mulai <span class="required-mark">*</span></label>
+                            <input type="date" id="start-date" name="start_date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="end-date">Tanggal selesai <span class="required-mark">*</span></label>
+                            <input type="date" id="end-date" name="end_date" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="start-time">Jam mulai <span class="required-mark">*</span></label>
+                            <select id="start-time" name="start_time" required>
+                                <option value="">Pilih jam mulai</option>
+                                <option value="07:00">07:00</option>
+                                <option value="07:30">07:30</option>
+                                <option value="08:00">08:00</option>
+                                <option value="08:30">08:30</option>
+                                <option value="09:00">09:00</option>
+                                <option value="09:30">09:30</option>
+                                <option value="10:00">10:00</option>
+                                <option value="10:30">10:30</option>
+                                <option value="11:00">11:00</option>
+                                <option value="11:30">11:30</option>
+                                <option value="12:00">12:00</option>
+                                <option value="12:30">12:30</option>
+                                <option value="13:00">13:00</option>
+                                <option value="13:30">13:30</option>
+                                <option value="14:00">14:00</option>
+                                <option value="14:30">14:30</option>
+                                <option value="15:00">15:00</option>
+                                <option value="15:30">15:30</option>
+                                <option value="16:00">16:00</option>
+                                <option value="16:30">16:30</option>
+                                <option value="17:00">17:00</option>
+                                <option value="17:30">17:30</option>
+                                <option value="18:00">18:00</option>
+                                <option value="18:30">18:30</option>
+                                <option value="19:00">19:00</option>
+                                <option value="19:30">19:30</option>
+                                <option value="20:00">20:00</option>
+                                <option value="20:30">20:30</option>
+                                <option value="21:00">21:00</option>
+                                <option value="21:30">21:30</option>
+                                <option value="22:00">22:00</option>
+                                <option value="22:30">22:30</option>
+                                <option value="23:00">23:00</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="end-time">Jam selesai <span class="required-mark">*</span></label>
+                            <select id="end-time" name="end_time" required>
+                                <option value="">Pilih jam mulai</option>
+                                <option value="07:00">07:00</option>
+                                <option value="07:30">07:30</option>
+                                <option value="08:00">08:00</option>
+                                <option value="08:30">08:30</option>
+                                <option value="09:00">09:00</option>
+                                <option value="09:30">09:30</option>
+                                <option value="10:00">10:00</option>
+                                <option value="10:30">10:30</option>
+                                <option value="11:00">11:00</option>
+                                <option value="11:30">11:30</option>
+                                <option value="12:00">12:00</option>
+                                <option value="12:30">12:30</option>
+                                <option value="13:00">13:00</option>
+                                <option value="13:30">13:30</option>
+                                <option value="14:00">14:00</option>
+                                <option value="14:30">14:30</option>
+                                <option value="15:00">15:00</option>
+                                <option value="15:30">15:30</option>
+                                <option value="16:00">16:00</option>
+                                <option value="16:30">16:30</option>
+                                <option value="17:00">17:00</option>
+                                <option value="17:30">17:30</option>
+                                <option value="18:00">18:00</option>
+                                <option value="18:30">18:30</option>
+                                <option value="19:00">19:00</option>
+                                <option value="19:30">19:30</option>
+                                <option value="20:00">20:00</option>
+                                <option value="20:30">20:30</option>
+                                <option value="21:00">21:00</option>
+                                <option value="21:30">21:30</option>
+                                <option value="22:00">22:00</option>
+                                <option value="22:30">22:30</option>
+                                <option value="23:00">23:00</option>
+                            </select>
+                        </div>
+                    </div>
+                    <p class="reservation-helper">Jam penggunaan mengikuti waktu operasional fasilitas</p>
+                </div>
+                <div class="reservation-divider"></div>
+                <div class="reservation-section">
+                    <div class="reservation-section-title">
+                        <span class="material-symbols-outlined">description</span>
+                        <div>
+                            <h3>Keperluan</h3>
+                            <p>Jelaskan tujuan penggunaan fasilitas</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="purpose">Keperluan <span class="required-mark">*</span></label>
+                        <textarea id="purpose" name="purpose" rows="4" placeholder="Contoh: Seminar, rapat organisasi, praktikum, kegiatan kemahasiswaan..." required></textarea>
+                    </div>
+                </div>
+                <div class="reservation-divider"></div>
+                <div class="reservation-section">
+                    <div class="reservation-section-title">
+                        <span class="material-symbols-outlined">upload_file</span>
+                        <div><h3>Berkas Pendukung</h3><p>Wajib melampirkan dokumen resmi sebagai dasar pengajuan reservasi.</p></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="supporting-file">Berkas resmi <span class="required-mark">*</span></label>
+                        <input type="file" id="supporting-file" name="supporting_file" accept=".pdf,.doc,.docx" required>
+                        <p class="file-helper">Proposal, surat izin, surat tugas, atau dokumen resmi lain yang relevan. Format PDF, DOC, DOCX dengan ukuran maksimal 5 MB.</p>
+                        <p id="file-error" class="form-error"></p>
+                    </div>
+                </div>
+                <div class="reservation-notice">
+                    <span class="material-symbols-outlined">info</span>
+                    <p>Pengajuan reservasi akan diperiksa oleh petugas. Reservasi belum dianggap disetujui sebelum mendapatkan persetujuan.</p>
+                </div>
+                <div class="reservation-actions">
+                    <a href="dashboard.html" class="reservation-button reservation-button-secondary">Batal</a>
+                    <button type="submit" class="reservation-button reservation-button-primary">Ajukan Reservasi</button>
+                </div>
+            </form>
+        </section>
+    </main>
+    <script src="assets/js/reservation.js"></script>
+</body>
+</html>
