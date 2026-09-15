@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Admin - SIAGA DIPS</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body>
+
+<div class="dashboard-wrapper">
+  
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="icon">
+        <span class="material-symbols-outlined">logo</span>
+      </div>
+      <div>
+        <h2>SIAGA DIPS</h2>
+        <span>Portal Administrator</span>
+      </div>
+    </div>
+    
+    <div class="sidebar-nav">
+      <p class="nav-label">Administrasi Sistem</p>
+      
+      <div class="nav-item active" id="nav-btn-facilities" onclick="switchTab('tab-facilities')">
+        <div class="nav-item-left">
+          <span class="material-symbols-outlined">meeting_room</span>
+          <span>Kelola Fasilitas</span>
+        </div>
+      </div>
+      
+      <div class="nav-item" id="nav-btn-accounts" onclick="switchTab('tab-accounts')">
+        <div class="nav-item-left">
+          <span class="material-symbols-outlined">manage_accounts</span>
+          <span>Kelola Akun</span>
+        </div>
+        <span class="badge warning" id="badge-pending-accounts">1</span>
+      </div>
+      
+      <div class="nav-item" id="nav-btn-reports" onclick="switchTab('tab-reports')">
+        <div class="nav-item-left">
+          <span class="material-symbols-outlined">monitoring</span>
+          <span>Rekapitulasi & Ekspor</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="sidebar-footer">
+      <div class="user-profile">
+        <div class="user-avatar sidebar-admin-avatar">IK</div>
+        <div class="user-info">
+          <p>Ira Kusumadewi</p>
+          <span>Admin</span>
+        </div>
+      </div>
+      <button class="logout-btn" onclick="window.location.href='login.html'">
+        <span class="material-symbols-outlined">logout</span> Logout
+      </button>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    
+    <div id="tab-facilities" class="tab-content">
+      <div class="page-header-flex">
+        <div>
+          <h2 class="page-title">Kelola Fasilitas Kampus</h2>
+          <p class="page-subtitle">Tambah, edit, atau ubah status aktif/nonaktif data master fasilitas.</p>
+        </div>
+        <button class="btn btn-primary" onclick="openModal('modal-add-facility')">
+          <span class="material-symbols-outlined icon-sm">add_circle</span> Tambah Fasilitas
+        </button>
+      </div>
+      
+      <div class="table-card">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Nama Fasilitas</th>
+              <th>Tipe</th>
+              <th>Lokasi</th>
+              <th>Kapasitas</th>
+              <th>Status</th>
+              <th class="text-center">Aksi</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <tr id="fac-1">
+              <td><div class="font-bold">Muladi Dome</div></td>
+              <td>Gedung/Aula</td>
+              <td>Lainnya</td>
+              <td>5000 Orang</td>
+              <td><span class="badge success">Aktif</span></td>
+              <td class="text-center">
+                <div class="action-buttons">
+                  <button class="btn btn-outline btn-fixed" onclick="openEditModal('fac-1', 'Muladi Dome', 'Gedung/Aula', 'Lainnya', 5000)">Edit</button>
+                  <button class="btn btn-danger btn-fixed" onclick="toggleFacilityStatus('fac-1', 'Muladi Dome')">Nonaktifkan</button>
+                </div>
+              </td>
+            </tr>
+
+            <tr id="fac-2">
+              <td><div class="font-bold">Polytron Stadium</div></td>
+              <td>Stadion</td>
+              <td>Lainnya</td>
+              <td>300 Orang</td>
+              <td><span class="badge success">Aktif</span></td>
+              <td class="text-center">
+                <div class="action-buttons">
+                  <button class="btn btn-outline btn-fixed" onclick="openEditModal('fac-2', 'Polytron Stadium', 'Stadion', 'Lainnya', 300)">Edit</button>
+                  <button class="btn btn-danger btn-fixed" onclick="toggleFacilityStatus('fac-2', 'Polytron Stadium')">Nonaktifkan</button>
+                </div>
+              </td>
+            </tr>
+
+            <tr id="fac-3">
+              <td><div class="font-bold">Gedung Auditorium Prof. Soedarto, S.H.</div></td>
+              <td>Gedung/Aula</td>
+              <td>Lainnya</td>
+              <td>800 Orang</td>
+              <td><span class="badge success">Aktif</span></td>
+              <td class="text-center">
+                <div class="action-buttons">
+                  <button class="btn btn-outline btn-fixed" onclick="openEditModal('fac-3', 'Gedung Auditorium Prof. Soedarto, S.H.', 'Gedung/Aula', 'Lainnya', 800)">Edit</button>
+                  <button class="btn btn-danger btn-fixed" onclick="toggleFacilityStatus('fac-3', 'Gedung Auditorium Prof. Soedarto, S.H.')">Nonaktifkan</button>
+                </div>
+              </td>
+            </tr>
+
+            <tr id="fac-4">
+              <td><div class="font-bold">Laboratorium Komputer Terintegrasi - Gedung Acintya Prasada</div></td>
+              <td>Laboratorium</td>
+              <td>FSM</td>
+              <td>50 Orang</td>
+              <td><span class="badge success">Aktif</span></td>
+              <td class="text-center">
+                <div class="action-buttons">
+                  <button class="btn btn-outline btn-fixed" onclick="openEditModal('fac-4', 'Laboratorium Komputer Terintegrasi - Gedung Acintya Prasada', 'Laboratorium', 'FSM', 50)">Edit</button>
+                  <button class="btn btn-danger btn-fixed" onclick="toggleFacilityStatus('fac-4', 'Laboratorium Komputer Terintegrasi - Gedung Acintya Prasada')">Nonaktifkan</button>
+                </div>
+              </td>
+            </tr>
+
+            <tr id="fac-5">
+              <td><div class="font-bold">Gedung Laboratorium Terpadu</div></td>
+              <td>Laboratorium</td>
+              <td>Lainnya</td>
+              <td>50 Orang</td>
+              <td><span class="badge neutral">Nonaktif</span></td>
+              <td class="text-center">
+                <div class="action-buttons">
+                  <button class="btn btn-outline btn-fixed" onclick="openEditModal('fac-5', 'Gedung Laboratorium Terpadu', 'Laboratorium', 'Lainnya', 50)">Edit</button>
+                  <button class="btn btn-primary btn-fixed" onclick="toggleFacilityStatus('fac-5', 'Gedung Laboratorium Terpadu')">Aktifkan Ulang</button>
+                </div>
+              </td>
+            </tr>
+
+            <tr id="fac-6">
+              <td><div class="font-bold">Laboratorium Sentral FK</div></td>
+              <td>Laboratorium</td>
+              <td>Lainnya</td>
+              <td>50 Orang</td>
+              <td><span class="badge success">Aktif</span></td>
+              <td class="text-center">
+                <div class="action-buttons">
+                  <button class="btn btn-outline btn-fixed" onclick="openEditModal('fac-6', 'Laboratorium Sentral FK', 'Laboratorium', 'Lainnya', 50)">Edit</button>
+                  <button class="btn btn-danger btn-fixed" onclick="toggleFacilityStatus('fac-6', 'Laboratorium Sentral FK')">Nonaktifkan</button>
+                </div>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div id="tab-accounts" class="tab-content hidden">
+      <div class="page-header-flex">
+        <div>
+          <h2 class="page-title">Manajemen Akun</h2>
+          <p class="page-subtitle">Daftarkan akun staf/pengguna secara langsung dan verifikasi registrasi mandiri.</p>
+        </div>
+        <div class="action-buttons">
+          <button class="btn btn-primary" onclick="openModal('modal-add-user')">
+            <span class="material-symbols-outlined icon-sm">person_add</span> Daftarkan Pengguna/Petugas
+          </button>
+        </div>
+      </div>
+      
+      <div class="table-card">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Identitas Akun</th>
+              <th>NIM / NIP</th>
+              <th>Peran (Role)</th>
+              <th>Status Akun</th>
+              <th class="text-center">Aksi</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr id="acc-1">
+              <td>
+                <div class="font-bold">Nabila Kayla Rafa</div>
+                <div class="text-sm text-muted">nabilakay@students.undip.ac.id</div>
+              </td>
+              <td>24060124120022</td>
+              <td><span class="user-role">Mahasiswa</span></td>
+              <td><span class="badge warning">Menunggu Verifikasi</span></td>
+              <td class="text-center">
+                <div class="action-buttons">
+                  <button class="btn btn-primary btn-fixed" onclick="verifyAccount('acc-1', 'Nabila Kayla Rafa')">Setujui</button>
+                  <button class="btn btn-outline btn-fixed" onclick="rejectAccount('acc-1')">Tolak</button>
+                </div>
+              </td>
+            </tr>
+            <tr id="acc-2">
+              <td>
+                <div class="font-bold">Arif Pratama</div>
+                <div class="text-sm text-muted">arifpratama35@facility.undip.ac.id</div>
+              </td>
+              <td>198803112014021004</td>
+              <td><span class="user-role text-role-staff">Petugas</span></td>
+              <td><span class="badge success">Aktif</span></td>
+              <td class="text-center">
+                <button class="btn btn-danger btn-fixed" onclick="alert('Akses login petugas dicabut.')">Cabut Akses</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div id="tab-reports" class="tab-content hidden">
+      <div class="page-header-flex">
+        <div>
+          <h2 class="page-title">Rekapitulasi Laporan</h2>
+          <p class="page-subtitle">Statistik okupansi fasilitas dan frekuensi kerusakan per fasilitas/lokasi.</p>
+        </div>
+        <div class="action-buttons">
+          <button class="btn btn-outline" onclick="exportData('CSV')">CSV</button>
+          <button class="btn btn-outline" onclick="exportData('Excel')">Excel</button>
+          <button class="btn btn-primary" onclick="exportData('PDF')">
+            <span class="material-symbols-outlined icon-sm">picture_as_pdf</span> Ekspor PDF
+          </button>
+        </div>
+      </div>
+
+      <div class="stats-grid grid-3-col">
+        <div class="stat-card">
+          <div>
+            <p class="stat-label">Rata-rata Okupansi Ruangan</p>
+            <h3 class="stat-value text-primary">72.1%</h3>
+          </div>
+          <div class="stat-icon primary"><span class="material-symbols-outlined">trending_up</span></div>
+        </div>
+        <div class="stat-card">
+          <div>
+            <p class="stat-label">Total Jam Peminjaman</p>
+            <h3 class="stat-value">1,420 Jam</h3>
+          </div>
+          <div class="stat-icon neutral"><span class="material-symbols-outlined">schedule</span></div>
+        </div>
+        <div class="stat-card">
+          <div>
+            <p class="stat-label">Frekuensi Kerusakan</p>
+            <h3 class="stat-value text-danger">5 Laporan</h3>
+          </div>
+          <div class="stat-icon danger"><span class="material-symbols-outlined">build</span></div>
+        </div>
+      </div>
+      
+      <div class="table-card">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Fasilitas</th>
+              <th>Lokasi</th>
+              <th>Total Peminjaman</th>
+              <th>Tingkat Okupansi</th>
+              <th>Frekuensi Kerusakan</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><div class="font-bold">Muladi Dome</div></td>
+              <td>Lainnya</td>
+              <td>45 Kali</td>
+              <td>82%</td>
+              <td><span class="badge neutral">0 Laporan</span></td>
+            </tr>
+            <tr>
+              <td><div class="font-bold">Polytron Stadium</div></td>
+              <td>Lainnya</td>
+              <td>28 Kali</td>
+              <td>65%</td>
+              <td><span class="badge neutral">0 Laporan</span></td>
+            </tr>
+            <tr>
+              <td><div class="font-bold">Gedung Auditorium Prof. Soedarto, S.H.</div></td>
+              <td>Lainnya</td>
+              <td>38 Kali</td>
+              <td>75%</td>
+              <td><span class="badge danger">2 Laporan</span></td>
+            </tr>
+            <tr>
+              <td><div class="font-bold">Laboratorium Komputer Terintegrasi - Gedung Acintya Prasada</div></td>
+              <td>FSM</td>
+              <td>52 Kali</td>
+              <td>88%</td>
+              <td><span class="badge danger">1 Laporan</span></td>
+            </tr>
+            <tr>
+              <td><div class="font-bold">Gedung Laboratorium Terpadu</div></td>
+              <td>Lainnya</td>
+              <td>10 Kali</td>
+              <td>30%</td>
+              <td><span class="badge danger">1 Laporan</span></td>
+            </tr>
+            <tr>
+              <td><div class="font-bold">Laboratorium Sentral FK</div></td>
+              <td>Lainnya</td>
+              <td>22 Kali</td>
+              <td>58%</td>
+              <td><span class="badge danger">1 Laporan</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- Modal 1: Tambah User -->
+<div id="modal-add-user" class="modal-overlay hidden">
+  <div class="modal-box">
+    <h3 class="modal-title">Daftarkan Akun Baru</h3>
+    <p class="text-sm text-muted">Peran (role) otomatis dideteksi dari domain email institusi.</p>
+    <div class="modal-form">
+      <div class="form-group">
+        <label class="form-label">Nama Lengkap</label>
+        <input type="text" id="user-name" placeholder="Masukkan nama lengkap" class="form-input">
+      </div>
+      <div class="form-group">
+        <label class="form-label">NIM / NIP</label>
+        <input type="text" id="user-nim" placeholder="Masukkan NIM atau NIP" class="form-input">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Email Kampus</label>
+        <input type="email" id="user-email" placeholder="example@students.undip.ac.id" class="form-input" onkeyup="detectRole()">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Peran (Role)</label>
+        <div id="detected-role" class="form-input detected-role-box">
+          Menunggu input email...
+        </div>
+      </div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-outline" onclick="closeModal('modal-add-user')">Batal</button>
+      <button class="btn btn-primary" onclick="submitAddUser()">Daftarkan Akun</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal 2: Tambah Fasilitas -->
+<div id="modal-add-facility" class="modal-overlay hidden">
+  <div class="modal-box">
+    <h3 class="modal-title">Tambah Fasilitas Baru</h3>
+    <p class="text-sm text-muted">Isi informasi awal master fasilitas sarana prasarana.</p>
+    <div class="modal-form">
+      <div class="form-group">
+        <label class="form-label">Nama Fasilitas <span class="required-star">*</span></label>
+        <input type="text" placeholder="Contoh: Gedung Laboratorium B" class="form-input">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Tipe Fasilitas <span class="required-star">*</span></label>
+        <select class="form-input">
+          <option>Gedung/Aula</option>
+          <option>Laboratorium</option>
+          <option>Stadion</option>
+          <option>Ruang Kelas</option>
+          <option>Outdoor Area</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Lokasi <span class="required-star">*</span></label>
+        <select class="form-input">
+          <option>Lainnya</option>
+          <option>FSM</option>
+          <option>FT</option>
+          <option>FEB</option>
+          <option>FH</option>
+          <option>FISIP</option>
+          <option>FIB</option>
+          <option>FK</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Kapasitas (Orang) <span class="required-star">*</span></label>
+        <input type="number" placeholder="Contoh: 100" class="form-input">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Alamat / Detail Lokasi (Opsional)</label>
+        <input type="text" placeholder="Contoh: Jl. Prof. Soedarto..." class="form-input">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Foto Fasilitas (Opsional)</label>
+        <input type="file" accept="image/*" class="form-input file-input">
+      </div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-outline" onclick="closeModal('modal-add-facility')">Batal</button>
+      <button class="btn btn-primary" onclick="closeModal('modal-add-facility'); alert('Fasilitas berhasil ditambahkan!')">Simpan</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal 3: Edit Fasilitas -->
+<div id="modal-edit-facility" class="modal-overlay hidden">
+  <div class="modal-box">
+    <h3 class="modal-title">Edit Data Fasilitas</h3>
+    <p class="text-sm text-muted">Perbarui rincian informasi master fasilitas kampus.</p>
+    <div class="modal-form">
+      <div class="form-group">
+        <label class="form-label">Nama Fasilitas <span class="required-star">*</span></label>
+        <input type="text" id="edit-facility-name" class="form-input" placeholder="Nama Fasilitas">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Tipe Kategori <span class="required-star">*</span></label>
+        <select id="edit-facility-category" class="form-input">
+          <option value="Gedung/Aula">Gedung/Aula</option>
+          <option value="Laboratorium">Laboratorium</option>
+          <option value="Stadion">Stadion</option>
+          <option value="Ruang Kelas">Ruang Kelas</option>
+          <option value="Outdoor Area">Outdoor Area</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Lokasi / Fakultas <span class="required-star">*</span></label>
+        <select id="edit-facility-location" class="form-input">
+          <option value="Lainnya">Lainnya</option>
+          <option value="FSM">FSM</option>
+          <option value="FT">FT</option>
+          <option value="FEB">FEB</option>
+          <option value="FH">FH</option>
+          <option value="FISIP">FISIP</option>
+          <option value="FIB">FIB</option>
+          <option value="FK">FK</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Kapasitas (Orang) <span class="required-star">*</span></label>
+        <input type="number" id="edit-facility-capacity" class="form-input" placeholder="Contoh: 500">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Alamat / Detail Lokasi (Opsional)</label>
+        <input type="text" id="edit-facility-address" class="form-input" placeholder="Contoh: Jl. Prof. Soedarto...">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Perbarui Foto (Opsional)</label>
+        <input type="file" accept="image/*" class="form-input file-input">
+      </div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-outline" onclick="closeModal('modal-edit-facility')">Batal</button>
+      <button class="btn btn-primary" onclick="submitEditFacility()">Simpan Perubahan</button>
+    </div>
+  </div>
+</div>
+
+<script src="assets/js/admin.js"></script>
+</body>
+</html>

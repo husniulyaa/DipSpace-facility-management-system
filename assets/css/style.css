@@ -127,10 +127,6 @@ button {
   box-shadow: var(--shadow-kecil);
 }
 
-/* .navbar-logo .material-symbols-outlined {
-  font-size: 22px;
-} */
-
 .navbar-logo img{
   width: 30px;
   height: auto;
@@ -225,7 +221,6 @@ button {
 }
 
 .hero {
-  /* background: linear-gradient(to bottom, var(--purple-50), var(--white)); */
   background:radial-gradient(circle at 15% 20%,rgba(230, 178, 198, 0.45), transparent 35%), 
    radial-gradient(circle at 85% 70%,rgba(214, 229, 250, 0.6), transparent 35%), var(--background);
   border-bottom: 1px solid var(--border-light);
@@ -447,9 +442,7 @@ button {
   font-size: 13px;
   outline: none;
   cursor: pointer;
-  transition:
-    border-color 0.2s ease,
-    box-shadow 0.2s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .filter-group select:focus {

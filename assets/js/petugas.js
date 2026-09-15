@@ -1,4 +1,3 @@
-// Navigasi Tab Dashboard
 function switchTab(tabId) {
     document.querySelectorAll('.tab-content').forEach(tab => {
         tab.classList.add('hidden');
@@ -17,7 +16,6 @@ function switchTab(tabId) {
     }
 }
 
-// Fitur US8 & US9: Persetujuan / Penolakan Antrean Reservasi
 function updateQueueCount() {
     const badge = document.getElementById('badge-queue-count');
     const stat = document.getElementById('stat-pending');
@@ -50,7 +48,6 @@ function rejectQueue(rowId) {
     }
 }
 
-// Fitur US10: Pembatalan Darurat oleh Petugas
 let currentEmergencyRow = '';
 function openEmergencyModal(rowId) {
     currentEmergencyRow = rowId;
@@ -77,7 +74,6 @@ function confirmEmergency() {
     reasonInput.value = '';
 }
 
-// Fitur US11: Catatan Resolusi Penutupan Laporan Kerusakan
 let currentResolutionRow = '';
 function openResolutionModal(rowId) {
     currentResolutionRow = rowId;
@@ -104,7 +100,6 @@ function confirmResolution() {
     noteInput.value = '';
 }
 
-// Fitur US12: Toggle Status Pemeliharaan Fasilitas
 function toggleMaintenance(rowId) {
     const row = document.getElementById(rowId);
     if (!row) return;
@@ -127,7 +122,6 @@ function toggleMaintenance(rowId) {
     }
 }
 
-// Utility: Fungsi Umum Tutup Modal
 function closeModal(modalId) {
     const modal = document.getElementById(modalId);
     if (modal) modal.classList.add('hidden');
