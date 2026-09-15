@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
     <link rel="stylesheet" href="assets/css/style.css ">
+    <link rel="stylesheet" href="assets/css/availability.css">
 </head>
 <body>
     <header class="navbar">
@@ -130,7 +131,7 @@
                                 <span class="material-symbols-outlined">person</span> 5000 orang</p>
                             <p class="facility-card-address">
                                 <span class="material-symbols-outlined">home</span> Jl. Prof. Soedarto No.50239, Tembalang</p>
-                            <a href="#" class="facility-card-link">Lihat detail ketersediaan →</a>
+                            <button type="button" class="facility-card-button" onclick="openAvailability('Muladi Dome')">Lihat ketersediaan</button>
                         </div>
                     </article>
 
@@ -154,7 +155,7 @@
                                 <span class="material-symbols-outlined">person</span> 300 orang</p>
                             <p class="facility-card-address">
                                 <span class="material-symbols-outlined">home</span> Jl. Prof. Soedarto SH, Tembalang</p>
-                            <a href="#" class="facility-card-link">Lihat detail ketersediaan →</a>
+                            <button type="button" class="facility-card-button" onclick="openAvailability('Polytron Stadium')">Lihat ketersediaan</button>
                         </div>
                     </article>
 
@@ -178,10 +179,9 @@
                                 <span class="material-symbols-outlined">person</span> 800 orang</p>
                             <p class="facility-card-address">
                                 <span class="material-symbols-outlined">home</span> Jl. Prof. Soedarto, S.H., Kampus Universitas Diponegoro (Undip) Tembalang</p>
-                            <a href="#" class="facility-card-link">Lihat detail ketersediaan →</a>
+                            <button type="button" class="facility-card-button" onclick="openAvailability('Gedung Auditorium Prof. Soedarto, S.H.')">Lihat ketersediaan</button>
                         </div>
                     </article>
-
                     <article
                         class="facility-card"
                         data-name="Laboratorium Komputer Terintegrasi - Gedung Acintya Prasada"
@@ -202,10 +202,9 @@
                                 <span class="material-symbols-outlined">person</span> 50 orang</p>
                             <p class="facility-card-address">
                                 <span class="material-symbols-outlined">home</span> Jl. Prof. Jacob Rais, Tembalang</p>
-                            <a href="#" class="facility-card-link">Lihat detail ketersediaan →</a>
+                            <button type="button" class="facility-card-button" onclick="openAvailability('Laboratorium Komputer Terintegrasi - Gedung Acintya Prasada')">Lihat ketersediaan</button>
                         </div>
                     </article>
-
                     <article
                         class="facility-card"
                         data-name="Laboratorium Komputer Terintegrasi - Gedung Acintya Prasada"
@@ -226,10 +225,9 @@
                                 <span class="material-symbols-outlined">person</span> 50 orang</p>
                             <p class="facility-card-address">
                                 <span class="material-symbols-outlined">home</span> Jl. Prof. Jacob Rais, Tembalang</p>
-                            <a href="#" class="facility-card-link">Lihat detail ketersediaan →</a>
+                            <button type="button" class="facility-card-button" onclick="openAvailability('Laboratorium Komputer Terintegrasi - Gedung Acintya Prasada')">Lihat ketersediaan</button>
                         </div>
                     </article>
-
                     <article
                         class="facility-card"
                         data-name="Gedung Laboratorium Terpadu"
@@ -250,10 +248,9 @@
                                 <span class="material-symbols-outlined">person</span> 50 orang</p>
                             <p class="facility-card-address">
                                 <span class="material-symbols-outlined">home</span> Jl. Prof. Soedarto, S.H., Tembalang</p>
-                            <a href="#" class="facility-card-link">Lihat detail ketersediaan →</a>
+                            <button type="button" class="facility-card-button" onclick="openAvailability('Gedung Laboratorium Terpadu')">Lihat ketersediaan</button>
                         </div>
                     </article>
-
                     <article
                         class="facility-card"
                         data-name="Laboratorium Sentral FK"
@@ -274,7 +271,7 @@
                                 <span class="material-symbols-outlined">person</span> 50 orang</p>
                             <p class="facility-card-address">
                                 <span class="material-symbols-outlined">home</span> Jl. Prof. Moeljono S. Trastotenojo, Tembalang</p>
-                            <a href="#" class="facility-card-link">Lihat detail ketersediaan →</a>
+                            <button type="button" class="facility-card-button" onclick="openAvailability('Laboratorium Sentral FK')">Lihat ketersediaan</button>
                         </div>
                     </article>
                 </div>
@@ -287,5 +284,142 @@
         </div>
     </footer>
     <script src="assets/js/catalog.js"></script>
+    <div class="availability-overlay" id="availability-overlay">
+        <section class="availability-box">
+            <div class="availability-header">
+                <div class="availability-title-wrapper">
+                    <p class="availability-label">Ketersediaan Fasilitas</p>
+                    <h2 class="availability-title" id="availability-facility-name">Muladi Dome</h2>
+                    <p class="availability-subtitle">Cek jadwal penggunaan fasilitas berdasarkan tanggal.</p>
+                </div>
+                <button type="button" class="availability-close" id="availability-close" aria-label="Tutup">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <div class="availability-content">
+                <div class="availability-date-group">
+                    <label for="availability-date" class="availability-date-label">
+                        Pilih tanggal
+                    </label>
+                    <div class="availability-date-wrapper">
+                        <span class="material-symbols-outlined">calendar_month</span>
+                        <input type="date" id="availability-date" class="availability-date">
+                    </div>
+                </div>
+                <div class="availability-section">
+                    <div class="availability-section-header">
+                        <h3 class="availability-section-title">Ketersediaan waktu</h3>
+                        <span class="availability-operating-hours">07:00 – 24:00</span>
+                    </div>
+                    <div class="availability-time-list">
+                        <div class="availability-time-item">
+                            <span class="availability-time">07:00–08:00</span>
+                            <div class="availability-line"></div>
+                            <span class="availability-status available">Tersedia
+                            </span>
+                        </div>
+                        <div class="availability-time-item">
+                            <span class="availability-time">08:00–09:00</span>
+                            <div class="availability-line"></div>
+                            <span class="availability-status available">Tersedia</span>
+                        </div>
+                        <div class="availability-time-item">
+                            <span class="availability-time">09:00–10:00</span>
+                            <div class="availability-line"></div>
+                            <span class="availability-status pending">Menunggu persetujuan</span>
+                        </div>
+                        <div class="availability-time-item">
+                            <span class="availability-time">10:00–11:00</span>
+                            <div class="availability-line"></div>
+                            <span class="availability-status pending">Menunggu persetujuan</span>
+                        </div>
+                        <div class="availability-time-item">
+                            <span class="availability-time">11:00–12:00</span>
+                            <div class="availability-line"></div>
+                            <span class="availability-status unavailable">Tidak tersedia</span>
+                        </div>
+                        <div class="availability-time-item">
+                            <span class="availability-time">12:00–13:00</span>
+                            <div class="availability-line"></div>
+                            <span class="availability-status available">Tersedia</span>
+                        </div>
+                        <div class="availability-time-item">
+                            <span class="availability-time">13:00–14:00</span>
+                            <div class="availability-line"></div>
+                            <span class="availability-status available">Tersedia</span>
+                        </div>
+                        <div class="availability-time-item">
+                            <span class="availability-time">14:00–15:00</span>
+                            <div class="availability-line"></div>
+                            <span class="availability-status available">Tersedia</span>
+                        </div>
+                        <div class="availability-time-item">
+                            <span class="availability-time">15:00–16:00</span>
+                            <div class="availability-line"></div>
+                            <span class="availability-status unavailable">Tidak tersedia</span>
+                        </div>
+                        <div class="availability-time-item">
+                            <span class="availability-time">16:00–17:00</span>
+                            <div class="availability-line"></div>
+                            <span class="availability-status available">Tersedia</span>
+                        </div>
+                        <div class="availability-time-item">
+                            <span class="availability-time">17:00–18:00</span>
+                            <div class="availability-line"></div>
+                            <span class="availability-status available">Tersedia</span>
+                        </div>
+                        <div class="availability-time-item">
+                            <span class="availability-time">18:00–19:00</span>
+                            <div class="availability-line"></div>
+                            <span class="availability-status available">Tersedia</span>
+                        </div>
+                        <div class="availability-time-item">
+                            <span class="availability-time">19:00–20:00</span>
+                            <div class="availability-line"></div>
+                            <span class="availability-status available">Tersedia</span>
+                        </div>
+                        <div class="availability-time-item">
+                            <span class="availability-time">21:00–22:00</span>
+                            <div class="availability-line"></div>
+                            <span class="availability-status available">Tersedia</span>
+                        </div>
+                        <div class="availability-time-item">
+                            <span class="availability-time">22:00–23:00</span>
+                            <div class="availability-line"></div>
+                            <span class="availability-status available">Tersedia</span>
+                        </div>
+                        <div class="availability-time-item">
+                            <span class="availability-time">23:00–23:59</span>
+                            <div class="availability-line"></div>
+                            <span class="availability-status available">Tersedia</span>
+                        </div>
+                    </div>
+                    <div class="availability-legend">
+                        <div class="availability-legend-item">
+                            <span class="availability-legend-dot available"></span>
+                            Tersedia
+                        </div>
+                        <div class="availability-legend-item">
+                            <span class="availability-legend-dot pending"></span>
+                            Menunggu persetujuan
+                        </div>
+                        <div class="availability-legend-item">
+                            <span class="availability-legend-dot unavailable"></span>
+                            Tidak tersedia
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="availability-footer">
+                <button type="button" class="availability-button availability-button-secondary" id="availability-cancel">
+                    Tutup
+                </button>
+                <button type="button" class="availability-button availability-button-primary" id="availability-reserve">
+                    Ajukan Reservasi
+                </button>
+            </div>
+        </section>
+    </div>
+    <script src="assets/js/availability.js"></script>
 </body>
 </html>

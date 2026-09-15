@@ -129,7 +129,7 @@ button {
   font-size: 22px;
 } */
 
-.navbar-logo img{
+.navbar-logo img {
   width: 30px;
   height: auto;
   vertical-align: middle;
@@ -224,8 +224,18 @@ button {
 
 .hero {
   /* background: linear-gradient(to bottom, var(--purple-50), var(--white)); */
-  background:radial-gradient(circle at 15% 20%,rgba(230, 178, 198, 0.45), transparent 35%), 
-   radial-gradient(circle at 85% 70%,rgba(214, 229, 250, 0.6), transparent 35%), var(--background);
+  background:
+    radial-gradient(
+      circle at 15% 20%,
+      rgba(230, 178, 198, 0.45),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 85% 70%,
+      rgba(214, 229, 250, 0.6),
+      transparent 35%
+    ),
+    var(--background);
   border-bottom: 1px solid var(--border-light);
   padding: 48px 0 56px;
   position: relative;
@@ -290,26 +300,26 @@ button {
 }
 
 .hero-decoration {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(10px);
-    pointer-events: none;
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(10px);
+  pointer-events: none;
 }
 
 .hero-decoration-pink {
-    width: 220px;
-    height: 220px;
-    background: rgba(215, 127, 161, 0.18);
-    top: 40px;
-    left: -80px;
+  width: 220px;
+  height: 220px;
+  background: rgba(215, 127, 161, 0.18);
+  top: 40px;
+  left: -80px;
 }
 
 .hero-decoration-blue {
-    width: 280px;
-    height: 280px;
-    background: rgba(201, 218, 247, 0.45);
-    right: -100px;
-    bottom: 20px;
+  width: 280px;
+  height: 280px;
+  background: rgba(201, 218, 247, 0.45);
+  right: -100px;
+  bottom: 20px;
 }
 
 .search-panel {
@@ -655,7 +665,7 @@ button {
   overflow: hidden;
 }
 
-.facility-card-address .material-symbols-outlined{
+.facility-card-address .material-symbols-outlined {
   font-size: 16px;
   color: var(--text-muted);
 }
@@ -734,15 +744,51 @@ button {
 }
 
 .footer {
-    padding: 30px 0;
-    background: linear-gradient(180deg,#f6cee7,#dce6f5);
-    border-top: 1px solid rgba(215, 127, 161, 0.15);
-    text-align: center;
+  padding: 30px 0;
+  background: linear-gradient(180deg, #f6cee7, #dce6f5);
+  border-top: 1px solid rgba(215, 127, 161, 0.15);
+  text-align: center;
 }
 
 .footer p {
-    margin: 0;
-    font-family: var(--font-label);
-    font-size: 11px;
-    color: var(--text-secondary);
+  margin: 0;
+  font-family: var(--font-label);
+  font-size: 11px;
+  color: var(--text-secondary);
+}
+
+.facility-card-button {
+  width: 100%;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 18px;
+  padding: 0 16px;
+  border: 1px solid rgba(213, 99, 143, 0.2);
+  border-radius: 10px;
+  background: #fdf3f7;
+  color: var(--primary-dark);
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.facility-card-button:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: var(--white);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(213, 99, 143, 0.18);
+}
+
+.facility-card-button:active {
+  transform: translateY(0);
+}
+
+.facility-card-button .material-symbols-outlined {
+  font-size: 17px;
 }
