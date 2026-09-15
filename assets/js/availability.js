@@ -2,7 +2,6 @@ const availabilityOverlay = document.querySelector("#availability-overlay");
 const availabilityClose = document.querySelector("#availability-close");
 const availabilityCancel = document.querySelector("#availability-cancel");
 const availabilityDate = document.querySelector("#availability-date");
-const availabilityReserve = document.querySelector("#availability-reserve");
 const availabilityFacilityName = document.querySelector("#availability-facility-name");
 
 function openAvailability(facilityName) {
@@ -29,8 +28,4 @@ document.addEventListener("keydown", function (event) {
     if (event.key === "Escape") {
         closeAvailability();
     }
-});
-
-availabilityReserve.addEventListener("click", function () {
-    console.log("Ajukan reservasi");
 });
