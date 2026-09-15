@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporkan Masalah - SIAGA DIPS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/report.css">
+</head>
+<body>
+    <header class="report-navbar">
+        <a href="dashboard.html" class="report-brand">
+            <div class="report-logo"><img src="assets/images/logo-patung-kuda-undip.png" alt="Logo UNDIP"></div>
+            <div class="report-brand-text"><h1>SIAGA DIPS</h1><span>Sistem Informasi Akses dan Pengelolaan Fasilitas Universitas Diponegoro</span></div>
+        </a>
+        <a href="dashboard.html" class="report-back"><span class="material-symbols-outlined">arrow_back</span>Kembali ke Dashboard</a>
+    </header>
+    <main class="report-main">
+        <section class="report-header">
+            <p class="report-label">Laporan Fasilitas</p>
+            <h2>Laporkan Masalah Fasilitas</h2>
+            <p>Sampaikan kerusakan atau masalah fasilitas agar dapat segera ditindaklanjuti oleh petugas.</p>
+        </section>
+        <section class="report-card">
+            <form class="report-form" id="report-form">
+                <div class="report-section">
+                    <div class="report-section-title">
+                        <span class="material-symbols-outlined">location_on</span>
+                        <div><h3>Fasilitas</h3><p>Pilih fasilitas yang mengalami masalah.</p></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="facility">Fasilitas <span class="required-mark">*</span></label>
+                        <select id="facility" name="facility" required>
+                            <option value="">Pilih fasilitas</option>
+                            <option value="muladi-dome">Muladi Dome</option>
+                            <option value="polytron">Gedung Serbaguna Polytron</option>
+                            <option value="auditorium">Auditorium</option>
+                            <option value="lab-komputer">Lab Komputer Terintegrasi</option>
+                            <option value="gedung-laboratorium">Gedung Laboratorium Terpadu</option>
+                            <option value="laboratorium-sentral">Laboratorium Sentral FK</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="report-divider"></div>
+                <div class="report-section">
+                    <div class="report-section-title">
+                        <span class="material-symbols-outlined">report_problem</span>
+                        <div><h3>Masalah</h3><p>Pilih kategori dan jelaskan masalah yang ditemukan.</p></div>
+                    </div>
+                    <div class="report-form-grid">
+                        <div class="form-group">
+                            <label for="category">Kategori masalah <span class="required-mark">*</span></label>
+                            <select id="category" name="category" required>
+                                <option value="">Pilih kategori</option>
+                                <option value="fasilitas-rusak">Fasilitas rusak</option>
+                                <option value="peralatan-rusak">Peralatan rusak</option>
+                                <option value="kebersihan">Kebersihan</option>
+                                <option value="kelistrikan">Kelistrikan</option>
+                                <option value="jaringan">Jaringan/Internet</option>
+                                <option value="keamanan">Keamanan</option>
+                                <option value="lainnya">Lainnya</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="location-detail">Lokasi detail <span class="required-mark">*</span></label>
+                            <input type="text" id="location-detail" name="location_detail" placeholder="Contoh: Ruang 203, lantai 2" required>
+                        </div>
+                    </div>
+                    <div class="form-group report-description-group">
+                        <label for="description">Deskripsi masalah <span class="required-mark">*</span></label>
+                        <textarea id="description" name="description" rows="5" placeholder="Jelaskan masalah atau kerusakan yang ditemukan secara detail..." required></textarea>
+                    </div>
+                </div>
+                <div class="report-divider"></div>
+                <div class="report-section">
+                    <div class="report-section-title">
+                        <span class="material-symbols-outlined">photo_camera</span>
+                        <div><h3>Bukti Laporan</h3><p>Tambahkan foto untuk membantu petugas memahami kondisi fasilitas.</p></div>
+                    </div>
+                    <div class="form-group">
+                        <label>Foto kerusakan <span class="optional-mark">(opsional)</span></label>
+                        <div class="report-photo-actions">
+                            <button type="button" class="report-photo-button" id="take-photo-button">
+                                <span class="material-symbols-outlined">photo_camera</span>
+                                Ambil Foto
+                            </button>
+                            <button type="button" class="report-photo-button" id="choose-photo-button">
+                                <span class="material-symbols-outlined">image</span>
+                                Pilih dari Galeri
+                            </button>
+                        </div>
+                        <input type="file" id="camera-input" accept="image/*" capture="environment" hidden>
+                        <input type="file" id="gallery-input" accept="image/*" hidden>
+                        <p id="selected-photo" class="file-helper"></p>
+                        <p class="file-helper">Foto membantu petugas mengidentifikasi kondisi fasilitas. Format JPG, PNG, atau WEBP dengan ukuran maksimal 5 MB.</p>
+                        <p id="file-error" class="form-error"></p>
+                    </div>
+                </div>
+                <div class="report-notice">
+                    <span class="material-symbols-outlined">info</span>
+                    <p>Laporan akan diteruskan kepada petugas untuk diperiksa dan ditindaklanjuti. Anda dapat melihat status laporan melalui dashboard.</p>
+                </div>
+                <div class="report-actions">
+                    <a href="dashboard.html" class="report-button report-button-secondary">Batal</a>
+                    <button type="submit" class="report-button report-button-primary">Kirim Laporan</button>
+                </div>
+            </form>
+        </section>
+    </main>
+    <script src="assets/js/report.js"></script>
+</body>
+</html>
