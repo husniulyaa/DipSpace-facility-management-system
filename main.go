@@ -7,10 +7,9 @@ import (
 )
 
 func main() {
-	// 1. Hubungkan ke database
+	
 	config.ConnectDB()
 
-	// 2. Jalankan AutoMigrate untuk membuat tabel di MySQL
 	err := config.DB.AutoMigrate(
 		&model.User{},
 		&model.Facility{},
@@ -24,4 +23,6 @@ func main() {
 	}
 
 	fmt.Println("Migrasi tabel SIAGA DIPS berhasil dijalankan!")
+
+	config.SeedDatabase()
 }

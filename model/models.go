@@ -5,14 +5,15 @@ import (
 )
 
 type User struct {
-	ID        uint      `gorm:"primaryKey;autoIncrement"`
-	Name      string    `gorm:"type:varchar(100);not null"`
-	Email     string    `gorm:"type:varchar(150);not null;unique"`
-	Password  string    `gorm:"type:varchar(255);not null"`
-	Role      string    `gorm:"type:varchar(20);not null"` // user, officer, admin
-	Status    string    `gorm:"type:varchar(20);not null"` // pending, active, rejected
-	CreatedAt time.Time `gorm:"not null;autoCreateTime"`
-	UpdatedAt time.Time `gorm:"not null;autoUpdateTime"`
+	ID             uint      `gorm:"primaryKey;autoIncrement"`
+	Name           string    `gorm:"type:varchar(100);not null"`
+	IdentityNumber string    `gorm:"type:varchar(50)"`
+	Email          string    `gorm:"type:varchar(150);not null;unique"`
+	Password       string    `gorm:"type:varchar(255);not null"`
+	Role           string    `gorm:"type:varchar(20);not null"` 
+	Status         string    `gorm:"type:varchar(30);not null"`
+	CreatedAt      time.Time `gorm:"not null;autoCreateTime"`
+	UpdatedAt      time.Time `gorm:"not null;autoUpdateTime"`
 
 	Reservations []Reservation `gorm:"foreignKey:UserID"`
 	Reports      []Report      `gorm:"foreignKey:UserID"`
@@ -25,7 +26,9 @@ type Facility struct {
 	Location    string    `gorm:"type:varchar(150);not null"`
 	Capacity    int       `gorm:"not null"`
 	Description string    `gorm:"type:text"`
-	Status      string    `gorm:"type:varchar(20);not null"` // active, maintenance, inactive
+	Address     string    `gorm:"type:varchar(255)"`
+	Image       string    `gorm:"type:varchar(255)"`
+	Status      string    `gorm:"type:varchar(30);not null"` 
 	CreatedAt   time.Time `gorm:"not null;autoCreateTime"`
 	UpdatedAt   time.Time `gorm:"not null;autoUpdateTime"`
 
@@ -41,7 +44,7 @@ type Reservation struct {
 	StartTime          string    `gorm:"type:time;not null"`
 	EndTime            string    `gorm:"type:time;not null"`
 	Purpose            string    `gorm:"type:text"`
-	Status             string    `gorm:"type:varchar(20);not null;index:idx_fac_resdate_status"` // pending, approved, rejected, cancelled
+	Status             string    `gorm:"type:varchar(30);not null;index:idx_fac_resdate_status"` 
 	CancellationReason string    `gorm:"type:text"`
 	CreatedAt          time.Time `gorm:"not null;autoCreateTime"`
 	UpdatedAt          time.Time `gorm:"not null;autoUpdateTime"`
@@ -57,7 +60,7 @@ type Report struct {
 	Category       string    `gorm:"type:varchar(100)"`
 	Description    string    `gorm:"type:text;not null"`
 	Photo          string    `gorm:"type:varchar(255)"`
-	Status         string    `gorm:"type:varchar(20);not null;index:idx_fac_status"` // new, processing, resolved, rejected
+	Status         string    `gorm:"type:varchar(30);not null;index:idx_fac_status"`
 	ResolutionNote string    `gorm:"type:text"`
 	CreatedAt      time.Time `gorm:"not null;autoCreateTime;index:idx_user_created"`
 	UpdatedAt      time.Time `gorm:"not null;autoUpdateTime"`
