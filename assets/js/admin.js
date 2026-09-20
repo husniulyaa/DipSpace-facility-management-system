@@ -4,7 +4,7 @@ function switchTab(tabId) {
     });
     document.getElementById(tabId).classList.remove('hidden');
 
-    document.querySelectorAll('.nav-item').forEach(nav => {
+    document.querySelectorAll('.navigation-item').forEach(nav => {
         nav.classList.remove('active');
     });
     
@@ -37,7 +37,7 @@ function toggleFacilityStatus(rowId, facilityName) {
             badge.className = 'badge neutral';
             badge.innerText = 'Nonaktif';
             
-            actionBtn.className = 'btn btn-primary btn-fixed';
+            actionBtn.className = 'button button-primary button-fixed';
             actionBtn.innerText = 'Aktifkan Ulang';
             alert(`Fasilitas "${facilityName}" telah DINONAKTIFKAN.`);
         }
@@ -45,22 +45,54 @@ function toggleFacilityStatus(rowId, facilityName) {
         badge.className = 'badge success';
         badge.innerText = 'Aktif';
         
-        actionBtn.className = 'btn btn-danger btn-fixed';
+        actionBtn.className = 'button button-danger button-fixed';
         actionBtn.innerText = 'Nonaktifkan';
         alert(`Fasilitas "${facilityName}" telah DIAKTIFKAN KEMBALI.`);
     }
 }
 
-let currentEditingRowId = '';
+function toggleDropdown(dropdownId) {
+    const dropdown = document.getElementById(dropdownId);
+    dropdown.classList.toggle('hidden');
+}
 
-function openEditModal(rowId, name, category, location, capacity, address = '') {
+window.addEventListener('click', function(event) {
+    if (!event.target.closest('.dropdown-wrapper')) {
+        const dropdowns = document.querySelectorAll('.dropdown-menu');
+        dropdowns.forEach(menu => {
+            if (!menu.classList.contains('hidden')) {
+                menu.classList.add('hidden');
+            }
+        });
+    }
+});
+
+let currentEditingRowId = '';
+let currentEditingImage = '';
+
+function openEditModal(rowId, name, category, location, capacity, address = '', imageFile = '') {
     currentEditingRowId = rowId;
+    currentEditingImage = imageFile;
     
     document.getElementById('edit-facility-name').value = name;
     document.getElementById('edit-facility-category').value = category;
     document.getElementById('edit-facility-location').value = location;
     document.getElementById('edit-facility-capacity').value = capacity;
     document.getElementById('edit-facility-address').value = address;
+    
+    // Logika menampilkan gambar di form modal
+    const imgPreview = document.getElementById('edit-facility-image-preview');
+    const noImgText = document.getElementById('edit-facility-no-image');
+
+    if (imageFile && imageFile.trim() !== '') {
+        imgPreview.src = 'assets/images/' + imageFile;
+        imgPreview.style.display = 'block';
+        noImgText.style.display = 'none';
+    } else {
+        imgPreview.src = '';
+        imgPreview.style.display = 'none';
+        noImgText.style.display = 'block';
+    }
     
     openModal('modal-edit-facility');
 }
@@ -85,8 +117,8 @@ function submitEditFacility() {
         row.cells[3].innerText = `${capacity} Orang`;
 
         const editBtn = row.querySelectorAll('.action-buttons button')[0];
-        
-        editBtn.setAttribute('onclick', `openEditModal('${currentEditingRowId}', '${name}', '${category}', '${location}', ${capacity}, '${address}')`);
+       
+        editBtn.setAttribute('onclick', `openEditModal('${currentEditingRowId}', '${name.replace(/'/g, "\\'")}', '${category}', '${location}', ${capacity}, '${address.replace(/'/g, "\\'")}', '${currentEditingImage}')`);
     }
 
     alert(`Data fasilitas "${name}" berhasil diperbarui!`);
