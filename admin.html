@@ -4,10 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard Admin - SIAGA DIPS</title>
-  
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-  
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/admin.css">
 </head>
@@ -153,7 +151,7 @@
               <td class="text-center">
                 <div class="action-buttons">
                   <button class="button button-outline button-fixed" onclick="openEditModal('fac-5', 'Gedung Laboratorium Terpadu', 'Laboratorium', 'Lainnya', 50, '', 'gd-lab-bersama.png')">Edit</button>
-                  <button class="button button-primary button-fixed" onclick="toggleFacilityStatus('fac-5', 'Gedung Laboratorium Terpadu')">Aktifkan Ulang</button>
+                  <button class="button button-primary button-fixed" onclick="toggleFacilityStatus('fac-5', 'Gedung Laboratorium Terpadu')">Aktifkan</button>
                 </div>
               </td>
             </tr>
@@ -322,21 +320,19 @@
 
     
     <div id="tab-reports" class="tab-content hidden">
-      <!-- Bagian Header Tab Rekapitulasi -->
+      
       <div class="page-header-flex">
         <div>
           <h2 class="page-title">Rekapitulasi Laporan</h2>
           <p class="page-subtitle">Statistik okupansi fasilitas dan frekuensi kerusakan per fasilitas/lokasi.</p>
         </div>
         
-        <!-- Tombol Dropdown Ekspor Baru -->
         <div class="action-buttons dropdown-wrapper">
           <button class="button button-primary" onclick="toggleDropdown('export-dropdown')">
             <span class="material-symbols-outlined icon-small">download</span> Ekspor Data
             <span class="material-symbols-outlined icon-small">expand_more</span>
           </button>
           
-          <!-- Isi Menu Dropdown -->
           <div id="export-dropdown" class="dropdown-menu hidden">
             <button class="dropdown-item" onclick="exportData('PDF'); toggleDropdown('export-dropdown')">
               <span class="material-symbols-outlined icon-small">picture_as_pdf</span> Format PDF
@@ -436,7 +432,6 @@
   </main>
 </div>
 
-
 <div id="modal-add-user" class="modal-overlay hidden">
   <div class="modal-box">
     <h3 class="modal-title">Daftarkan Akun Baru</h3>
@@ -467,7 +462,6 @@
     </div>
   </div>
 </div>
-
 
 <div id="modal-add-facility" class="modal-overlay hidden">
   <div class="modal-box">
@@ -521,22 +515,21 @@
   </div>
 </div>
 
-
 <div id="modal-edit-facility" class="modal-overlay hidden">
   <div class="modal-box modal-box-wide">
     <h3 class="modal-title">Edit Data Fasilitas</h3>
-    <p class="text-small text-muted" style="margin-bottom: 24px;">Perbarui rincian informasi master fasilitas kampus.</p>
-   
+    <p class="text-small text-muted mb-24">Perbarui rincian informasi master fasilitas kampus.</p>
+    
     <div class="modal-split-layout">
-     
+      
       <div class="modal-image-section">
         <div class="image-preview-container">
-            <img id="edit-facility-image-preview" src="" alt="Preview Fasilitas" class="image-preview-element" style="display: none;">
-            <p id="edit-facility-no-image" class="text-small text-muted" style="margin: 0;">Belum ada foto.</p>
+            <img id="edit-facility-image-preview" src="" alt="Preview Fasilitas" class="image-preview-element hidden">
+            <p id="edit-facility-no-image" class="text-small text-muted m-0">Belum ada foto.</p>
         </div>
         <div class="form-group">
             <label class="form-label">Perbarui Foto</label>
-            <input type="file" accept="image/*" class="form-input file-input" style="width: 100%;">
+            <input type="file" accept="image/*" class="form-input file-input w-100">
         </div>
       </div>
 
@@ -575,14 +568,14 @@
           </div>
           <div class="form-group">
             <label class="form-label">Alamat / Detail Lokasi (Opsional)</label>
-            <textarea id="edit-facility-address" class="form-input" placeholder="Contoh: Jl. Prof. Soedarto..." rows="3" style="resize: none; font-family: inherit;"></textarea>
+            <textarea id="edit-facility-address" class="form-input textarea-fixed" placeholder="Contoh: Jl. Prof. Soedarto..." rows="3"></textarea>
           </div>
         </div>
       </div>
 
     </div>
     
-    <div class="modal-actions" style="margin-top: 28px; border-top: 1px solid var(--border-light); padding-top: 20px;">
+    <div class="modal-actions modal-actions-spaced">
       <button class="button button-outline" onclick="closeModal('modal-edit-facility')">Batal</button>
       <button class="button button-primary" onclick="submitEditFacility()">Simpan Perubahan</button>
     </div>

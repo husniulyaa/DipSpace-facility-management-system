@@ -38,7 +38,7 @@ function toggleFacilityStatus(rowId, facilityName) {
             badge.innerText = 'Nonaktif';
             
             actionBtn.className = 'button button-primary button-fixed';
-            actionBtn.innerText = 'Aktifkan Ulang';
+            actionBtn.innerText = 'Aktifkan';
             alert(`Fasilitas "${facilityName}" telah DINONAKTIFKAN.`);
         }
     } else {
@@ -80,18 +80,17 @@ function openEditModal(rowId, name, category, location, capacity, address = '', 
     document.getElementById('edit-facility-capacity').value = capacity;
     document.getElementById('edit-facility-address').value = address;
     
-    // Logika menampilkan gambar di form modal
     const imgPreview = document.getElementById('edit-facility-image-preview');
     const noImgText = document.getElementById('edit-facility-no-image');
 
     if (imageFile && imageFile.trim() !== '') {
         imgPreview.src = 'assets/images/' + imageFile;
-        imgPreview.style.display = 'block';
-        noImgText.style.display = 'none';
+        imgPreview.classList.remove('hidden');
+        noImgText.classList.add('hidden');
     } else {
         imgPreview.src = '';
-        imgPreview.style.display = 'none';
-        noImgText.style.display = 'block';
+        imgPreview.classList.add('hidden');
+        noImgText.classList.remove('hidden');
     }
     
     openModal('modal-edit-facility');
@@ -117,7 +116,7 @@ function submitEditFacility() {
         row.cells[3].innerText = `${capacity} Orang`;
 
         const editBtn = row.querySelectorAll('.action-buttons button')[0];
-       
+        
         editBtn.setAttribute('onclick', `openEditModal('${currentEditingRowId}', '${name.replace(/'/g, "\\'")}', '${category}', '${location}', ${capacity}, '${address.replace(/'/g, "\\'")}', '${currentEditingImage}')`);
     }
 
@@ -129,20 +128,23 @@ function detectRole() {
     const email = document.getElementById('user-email').value.toLowerCase();
     const roleBox = document.getElementById('detected-role');
     
-    if (email.includes('@students.undip.ac.id') || email.includes('mhs')) {
+    if (email.includes('@students.undip.ac.id')) {
         roleBox.innerText = 'Mahasiswa';
         roleBox.style.color = 'var(--primary)';
-    } else if (email.includes('@lectures.undip.ac.id') || email.includes('dosen')) {
+    } else if (email.includes('@lectures.undip.ac.id')) {
         roleBox.innerText = 'Dosen';
         roleBox.style.color = 'var(--succes)';
-    } else if (email.includes('@staff.undip.ac.id') || email.includes('staff')) {
+    } else if (email.includes('@staff.undip.ac.id')) {
         roleBox.innerText = 'Staf Akademik';
         roleBox.style.color = 'var(--warning)';
-    } else if (email.includes('@facillity.undip.ac.id') || email.includes('admin') || email.includes('petugas')) {
+    } else if (email.includes('@facillity.undip.ac.id')) {
         roleBox.innerText = 'Petugas';
         roleBox.style.color = 'var(--danger)';
+    } else if (email.includes('@admin.undip.ac.id')) {
+        roleBox.innerText = 'Administrator';
+        roleBox.style.color = 'var(--danger)';
     } else if (email.length > 5) {
-        roleBox.innerText = 'Domain tidak dikenali (Default: Umum)';
+        roleBox.innerText = 'Domain tidak dikenali';
         roleBox.style.color = 'var(--text-primary)';
     } else {
         roleBox.innerText = 'Menunggu input email...';
@@ -163,6 +165,11 @@ function submitAddUser() {
     
     if (role.includes('Menunggu')) {
         alert('Format email belum lengkap atau tidak valid.');
+        return;
+    }
+
+    if (role.includes('Menunggu') || role.includes('tidak dikenali')) {
+        alert('Pendaftaran ditolak! Harap gunakan email resmi institusi yang valid.');
         return;
     }
 

@@ -421,13 +421,13 @@
 }
 
 .modal-box-wide {
-    width: 760px !important; /* Melebarkan modal khusus edit */
+    width: 760px !important; 
     max-width: 95vw;
 }
 
 .modal-split-layout {
     display: grid;
-    grid-template-columns: 280px 1fr; /* Kolom kiri 280px, kanan mengisi sisanya */
+    grid-template-columns: 280px 1fr; 
     gap: 28px;
     align-items: start;
     margin-top: 20px;
@@ -645,4 +645,27 @@
 
 .dropdown-item:hover .icon-small {
     color: var(--primary);
+}
+
+.mb-24 {
+    margin-bottom: 24px;
+}
+
+.m-0 {
+    margin: 0;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.textarea-fixed {
+    resize: none;
+    font-family: inherit;
+}
+
+.modal-actions-spaced {
+    margin-top: 28px;
+    border-top: 1px solid var(--border-light);
+    padding-top: 20px;
 }
