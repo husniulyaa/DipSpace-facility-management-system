@@ -42,7 +42,7 @@
 
 .sidebar-header .icon,
 .sidebar-admin-icon {
-    background: var(--text-primary) !important;
+    background: var(--primary) !important;
     color: var(--white);
     width: 40px;
     height: 40px;
@@ -102,7 +102,7 @@
 }
 
 .navigation-item:hover {
-    background: var(--purple-50);
+    background: var(--red-50);
     color: var(--primary);
 }
 
@@ -136,7 +136,7 @@
 .sidebar-admin-avatar {
     width: 36px;
     height: 36px;
-    background: var(--text-primary) !important;
+    background: var(--primary) !important;
     color: var(--white);
     border-radius: 50%;
     display: flex;
@@ -257,7 +257,7 @@
 }
 
 .stat-icon.primary { 
-    background: var(--purple-50); 
+    background: var(--red-50); 
     color: var(--primary); 
 }
 
@@ -294,7 +294,7 @@
 }
 
 .data-table th {
-    background: var(--purple-50);
+    background: var(--red-50);
     font-family: var(--font-label);
     font-weight: 600;
     color: var(--text-secondary);
@@ -302,7 +302,7 @@
 }
 
 .data-table tr:hover {
-    background: rgba(213, 99, 143, 0.02);
+    background: rgba(107, 20, 38, 0.02);
 }
 
 .badge {
@@ -367,7 +367,7 @@
 }
 
 .button-outline:hover { 
-    background: var(--purple-50); 
+    background: var(--red-50); 
 }
 
 .button-danger { 
@@ -511,7 +511,7 @@
 
 .form-input:focus {
     border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(213, 99, 143, 0.15);
+    box-shadow: 0 0 0 3px rgba(107, 20, 38, 0.15);
 }
 
 .modal-actions {
@@ -546,7 +546,7 @@
 }
 
 .file-input:hover::before {
-    background: var(--purple-50);
+    background: var(--red-50);
 }
 
 .hidden { 
@@ -634,7 +634,7 @@
 }
 
 .dropdown-item:hover {
-    background: var(--purple-50);
+    background: var(--red-50);
     color: var(--primary);
 }
 
@@ -668,4 +668,60 @@
     margin-top: 28px;
     border-top: 1px solid var(--border-light);
     padding-top: 20px;
+}
+
+.search-container {
+    display: flex;
+    justify-content: flex-start;
+    width: fit-content;
+}
+
+.search-input-wrapper {
+    position: relative;
+    width: 240px;
+}
+
+.search-icon {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    font-size: 18px !important;
+    pointer-events: none;
+}
+
+.search-input {
+    padding-left: 38px !important;
+    width: 100%;
+}
+
+.no-result-cell {
+    padding: 32px;
+    font-style: italic;
+    background: transparent;
+}
+
+.role-primary {
+    color: var(--primary);
+}
+
+.role-success {
+    color: var(--succes);
+}
+
+.role-warning {
+    color: var(--warning);
+}
+
+.role-danger {
+    color: var(--danger);
+}
+
+.role-default {
+    color: var(--text-primary);
+}
+
+.role-muted {
+    color: var(--text-muted);
 }
