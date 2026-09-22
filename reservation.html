@@ -14,7 +14,9 @@
 <body>
     <header class="reservation-navbar">
         <a href="dashboard.html" class="reservation-brand">
-            <div class="reservation-logo"><img src="assets/images/logo-patung-kuda-undip.png" alt="Logo UNDIP"></div>
+            <div class="reservation-logo">
+                <img src="assets/images/logo-patung-kuda-undip.png" alt="Logo UNDIP">
+            </div>
             <div class="reservation-brand-text">
                 <h1>DipSpace</h1>
                 <span>Sistem Informasi Peminjaman dan Pelaporan Fasilitas Kampus</span>
@@ -25,12 +27,14 @@
             Kembali ke Dashboard
         </a>
     </header>
+
     <main class="reservation-main">
         <section class="reservation-header">
             <p class="reservation-label">Reservasi Fasilitas</p>
             <h2>Ajukan Reservasi</h2>
             <p>Isi informasi penggunaan fasilitas untuk mengajukan reservasi.</p>
         </section>
+
         <section class="reservation-card">
             <form class="reservation-form" id="reservation-form">
                 <div class="reservation-section">
@@ -41,6 +45,7 @@
                             <p>Pilih fasilitas yang ingin digunakan</p>
                         </div>
                     </div>
+
                     <div class="form-group">
                         <label for="facility">Fasilitas <span class="required-mark">*</span></label>
                         <select id="facility" name="facility" required>
@@ -54,7 +59,9 @@
                         </select>
                     </div>
                 </div>
+
                 <div class="reservation-divider"></div>
+
                 <div class="reservation-section">
                     <div class="reservation-section-title">
                         <span class="material-symbols-outlined">calendar_month</span>
@@ -63,15 +70,18 @@
                             <p>Tentukan tanggal dan waktu penggunaan fasilitas</p>
                         </div>
                     </div>
+
                     <div class="reservation-form-grid">
                         <div class="form-group">
                             <label for="start-date">Tanggal mulai <span class="required-mark">*</span></label>
                             <input type="date" id="start-date" name="start_date" required>
                         </div>
+
                         <div class="form-group">
                             <label for="end-date">Tanggal selesai <span class="required-mark">*</span></label>
                             <input type="date" id="end-date" name="end_date" required>
                         </div>
+
                         <div class="form-group">
                             <label for="start-time">Jam mulai <span class="required-mark">*</span></label>
                             <select id="start-time" name="start_time" required>
@@ -111,10 +121,11 @@
                                 <option value="23:00">23:00</option>
                             </select>
                         </div>
+
                         <div class="form-group">
                             <label for="end-time">Jam selesai <span class="required-mark">*</span></label>
                             <select id="end-time" name="end_time" required>
-                                <option value="">Pilih jam mulai</option>
+                                <option value="">Pilih jam selesai</option>
                                 <option value="07:00">07:00</option>
                                 <option value="07:30">07:30</option>
                                 <option value="08:00">08:00</option>
@@ -151,9 +162,12 @@
                             </select>
                         </div>
                     </div>
+
                     <p class="reservation-helper">Jam penggunaan mengikuti waktu operasional fasilitas</p>
                 </div>
+
                 <div class="reservation-divider"></div>
+
                 <div class="reservation-section">
                     <div class="reservation-section-title">
                         <span class="material-symbols-outlined">description</span>
@@ -162,17 +176,24 @@
                             <p>Jelaskan tujuan penggunaan fasilitas</p>
                         </div>
                     </div>
+
                     <div class="form-group">
                         <label for="purpose">Keperluan <span class="required-mark">*</span></label>
                         <textarea id="purpose" name="purpose" rows="4" placeholder="Contoh: Seminar, rapat organisasi, praktikum, kegiatan kemahasiswaan..." required></textarea>
                     </div>
                 </div>
+
                 <div class="reservation-divider"></div>
+
                 <div class="reservation-section">
                     <div class="reservation-section-title">
                         <span class="material-symbols-outlined">upload_file</span>
-                        <div><h3>Berkas Pendukung</h3><p>Wajib melampirkan dokumen resmi sebagai dasar pengajuan reservasi.</p></div>
+                        <div>
+                            <h3>Berkas Pendukung</h3>
+                            <p>Wajib melampirkan dokumen resmi sebagai dasar pengajuan reservasi.</p>
+                        </div>
                     </div>
+
                     <div class="form-group">
                         <label for="supporting-file">Berkas resmi <span class="required-mark">*</span></label>
                         <input type="file" id="supporting-file" name="supporting_file" accept=".pdf,.doc,.docx" required>
@@ -180,10 +201,12 @@
                         <p id="file-error" class="form-error"></p>
                     </div>
                 </div>
+
                 <div class="reservation-notice">
                     <span class="material-symbols-outlined">info</span>
                     <p>Pengajuan reservasi akan diperiksa oleh petugas. Reservasi belum dianggap disetujui sebelum mendapatkan persetujuan.</p>
                 </div>
+
                 <div class="reservation-actions">
                     <a href="dashboard.html" class="reservation-button reservation-button-secondary">Batal</a>
                     <button type="submit" class="reservation-button reservation-button-primary">Ajukan Reservasi</button>
@@ -191,6 +214,68 @@
             </form>
         </section>
     </main>
+
+    <div class="reservation-success-overlay" id="reservation-success-overlay">
+        <div class="reservation-success-modal">
+            <button type="button" class="reservation-success-close" id="reservation-success-close" aria-label="Tutup">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+
+            <div class="reservation-success-icon">
+                <span class="material-symbols-outlined">check</span>
+            </div>
+
+            <div class="reservation-success-header">
+                <p class="reservation-label">Reservasi Berhasil</p>
+                <h2>Pengajuan reservasi berhasil dikirim</h2>
+                <p>Reservasi kamu telah diterima dan menunggu pemeriksaan petugas.</p>
+            </div>
+
+            <div class="reservation-success-body">
+                <div class="reservation-success-status">
+                    <span>Status</span>
+                    <strong class="dashboard-status pending">Menunggu</strong>
+                </div>
+
+                <div class="reservation-success-grid">
+                    <div class="reservation-success-item">
+                        <span>Fasilitas</span>
+                        <strong id="success-reservation-facility"></strong>
+                    </div>
+
+                    <div class="reservation-success-item">
+                        <span>Tanggal</span>
+                        <strong id="success-reservation-date"></strong>
+                    </div>
+
+                    <div class="reservation-success-item">
+                        <span>Waktu</span>
+                        <strong id="success-reservation-time"></strong>
+                    </div>
+
+                    <div class="reservation-success-item">
+                        <span>Keperluan</span>
+                        <strong id="success-reservation-purpose"></strong>
+                    </div>
+                </div>
+
+                <div class="reservation-success-file">
+                    <span>Berkas Pendukung</span>
+                    <strong id="success-reservation-file"></strong>
+                </div>
+            </div>
+
+            <div class="reservation-success-footer">
+                <button type="button" class="reservation-button reservation-button-secondary" id="reservation-success-close-button">
+                    Tutup
+                </button>
+                <a href="dashboard.html" class="reservation-button reservation-button-primary">
+                    Lihat Dashboard
+                </a>
+            </div>
+        </div>
+    </div>
+
     <script src="assets/js/reservation.js"></script>
 </body>
 </html>

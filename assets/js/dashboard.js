@@ -16,6 +16,7 @@ const detailCancellationDeadline = document.querySelector("#detail-cancellation-
 
 const reservationDetailButtons = document.querySelectorAll(".reservation-detail-button");
 let selectedReservationButton = null;
+
 logoutButton.addEventListener("click", function () {
     window.location.href = "index.html";
 });
@@ -44,6 +45,7 @@ function openReservationDetail(button) {
     detailCancellationDeadline.textContent = formatDateTime(cancellationDeadline);
 
     detailStatus.className = "dashboard-status";
+
     if (statusClass === "pending") {
         detailStatus.classList.add("pending");
     }
@@ -64,6 +66,7 @@ function openReservationDetail(button) {
 
 function updateCancellationButton(statusClass, cancellationDeadline) {
     const allowedStatuses = ["pending", "approved"];
+
     if (!allowedStatuses.includes(statusClass)) {
         reservationCancelButton.style.display = "none";
         return;
@@ -71,6 +74,7 @@ function updateCancellationButton(statusClass, cancellationDeadline) {
 
     const deadline = new Date(cancellationDeadline);
     const now = new Date();
+
     if (now <= deadline) {
         reservationCancelButton.style.display = "inline-flex";
     } else {
@@ -86,6 +90,7 @@ function cancelReservation() {
     const confirmed = confirm(
         "Apakah kamu yakin ingin membatalkan reservasi ini?"
     );
+
     if (!confirmed) {
         return;
     }
@@ -114,6 +119,7 @@ function closeReservationDetail() {
 
 function formatDateTime(dateTime) {
     const date = new Date(dateTime);
+
     return date.toLocaleDateString("id-ID", {
         day: "numeric",
         month: "long",
@@ -141,13 +147,6 @@ reservationDetailOverlay.addEventListener("click", function (event) {
     }
 });
 
-document.addEventListener("keydown", function (event) {
-    if (event.key === "Escape") {
-        closeReservationDetail();
-        closeReportDetail();
-    }
-});
-
 const reportDetailOverlay = document.querySelector("#report-detail-overlay");
 const reportDetailClose = document.querySelector("#report-detail-close");
 const reportDetailCancel = document.querySelector("#report-detail-cancel");
@@ -162,7 +161,127 @@ const reportDetailDescription = document.querySelector("#report-detail-descripti
 const reportDetailPhoto = document.querySelector("#report-detail-photo");
 const reportDetailNote = document.querySelector("#report-detail-note");
 
-const reportDetailButtons = document.querySelectorAll(".report-detail-button");
+const reportTableBody = document.querySelector("#report-table-body");
+const reportTotal = document.querySelector("#report-total");
+const reportNew = document.querySelector("#report-new");
+const reportProcessing = document.querySelector("#report-processing");
+const reportCompleted = document.querySelector("#report-completed");
+const reportRejected = document.querySelector("#report-rejected");
+
+const defaultReports = [
+    {
+        id: 1,
+        facility: "Lab Komputer Terintegrasi",
+        category: "Peralatan Rusak",
+        location: "Lantai 2",
+        date: "15 Sep 2026",
+        status: "Diproses",
+        statusClass: "processing",
+        description: "Salah satu komputer tidak dapat digunakan karena monitor tidak menyala.",
+        photo: "Foto kerusakan tersedia",
+        note: "Petugas sedang melakukan pengecekan perangkat."
+    },
+    {
+        id: 2,
+        facility: "Auditorium",
+        category: "Kelistrikan",
+        location: "Lantai 1",
+        date: "12 Sep 2026",
+        status: "Selesai",
+        statusClass: "completed",
+        description: "Lampu pada bagian depan auditorium tidak menyala.",
+        photo: "Foto kerusakan tersedia",
+        note: "Perbaikan kelistrikan telah selesai dilakukan."
+    },
+    {
+        id: 3,
+        facility: "Gedung Laboratorium Terpadu",
+        category: "Kebersihan",
+        location: "Lantai 1",
+        date: "10 Sep 2026",
+        status: "Baru",
+        statusClass: "new",
+        description: "Area sekitar ruang laboratorium perlu dibersihkan.",
+        photo: "Tidak ada foto",
+        note: "Laporan telah diterima dan menunggu pemeriksaan petugas."
+    }
+];
+
+function initializeReports() {
+    const savedReports = localStorage.getItem("reports");
+
+    if (savedReports === null) {
+        localStorage.setItem("reports", JSON.stringify(defaultReports));
+    }
+}
+
+function getReports() {
+    return JSON.parse(localStorage.getItem("reports")) || [];
+}
+
+function renderReports() {
+    const reports = getReports();
+
+    reportTableBody.innerHTML = "";
+
+    reports.forEach(function (report) {
+        const row = document.createElement("tr");
+
+        row.innerHTML = `
+            <td>${report.facility}</td>
+            <td>${report.category}</td>
+            <td>${report.date}</td>
+            <td>
+                <span class="report-status ${report.statusClass}">
+                    ${report.status}
+                </span>
+            </td>
+            <td>
+                <button
+                    type="button"
+                    class="report-detail-button"
+                    data-facility="${report.facility}"
+                    data-category="${report.category}"
+                    data-location="${report.location}"
+                    data-date="${report.date}"
+                    data-status="${report.status}"
+                    data-status-class="${report.statusClass}"
+                    data-description="${report.description}"
+                    data-photo="${report.photo}"
+                    data-note="${report.note}"
+                >
+                    Lihat
+                </button>
+            </td>
+        `;
+
+        reportTableBody.appendChild(row);
+    });
+
+    updateReportStats(reports);
+}
+
+function updateReportStats(reports) {
+    const total = reports.length;
+    const newReports = reports.filter(function (report) {
+        return report.statusClass === "new";
+    }).length;
+    const processing = reports.filter(function (report) {
+        return report.statusClass === "processing";
+    }).length;
+    const completed = reports.filter(function (report) {
+        return report.statusClass === "completed";
+    }).length;
+    const rejected = reports.filter(function (report) {
+        return report.statusClass === "rejected";
+    }).length;
+
+    reportTotal.textContent = total;
+    reportNew.textContent = newReports;
+    reportProcessing.textContent = processing;
+    reportCompleted.textContent = completed;
+    reportRejected.textContent = rejected;
+}
 
 function openReportDetail(button) {
     const facility = button.dataset.facility;
@@ -196,10 +315,14 @@ function closeReportDetail() {
     document.body.style.overflow = "";
 }
 
-reportDetailButtons.forEach(function (button) {
-    button.addEventListener("click", function () {
-        openReportDetail(button);
-    });
+document.addEventListener("click", function (event) {
+    const button = event.target.closest(".report-detail-button");
+
+    if (!button) {
+        return;
+    }
+
+    openReportDetail(button);
 });
 
 reportDetailClose.addEventListener("click", closeReportDetail);
@@ -210,3 +333,13 @@ reportDetailOverlay.addEventListener("click", function (event) {
         closeReportDetail();
     }
 });
+
+document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") {
+        closeReservationDetail();
+        closeReportDetail();
+    }
+});
+
+initializeReports();
+renderReports();
