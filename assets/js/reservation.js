@@ -70,25 +70,31 @@ function closeSuccessOverlay() {
 
 reservationForm.addEventListener("submit", function (event) {
     event.preventDefault();
+    
+    const facilitySelect = facilityInput;
+    const selectedOption = facilitySelect.options[facilitySelect.selectedIndex];
+    const facilityName = selectedOption.text;
+    const facilityValue = facilitySelect.value;
+    const facilitiesUnderMaintenance = ["auditorium", "gedung-laboratorium"]; 
+    if (facilitiesUnderMaintenance.includes(facilityValue)) {
+        alert(`Reservasi Gagal! Fasilitas "${facilityName}" saat ini sedang dalam perbaikan dan tidak tersedia untuk reservasi.`);
+        return;
+    }
 
-    const facility = getFacilityName();
     const startDate = startDateInput.value;
     const endDate = endDateInput.value;
     const startTime = startTimeInput.value;
     const endTime = endTimeInput.value;
     const purpose = purposeInput.value.trim();
     const supportingFile = supportingFileInput.files[0];
-
     if (endDate < startDate) {
         alert("Tanggal selesai tidak boleh lebih awal dari tanggal mulai.");
         return;
     }
-
     if (startDate === endDate && endTime <= startTime) {
         alert("Jam selesai harus lebih dari jam mulai.");
         return;
     }
-
     if (purpose.length < 5) {
         alert("Keperluan harus diisi dengan jelas.");
         return;
@@ -96,12 +102,10 @@ reservationForm.addEventListener("submit", function (event) {
 
     const reservation = {
         id: Date.now(),
-        facility: facility,
+        facility: facilityName,
         startDate: startDate,
         endDate: endDate,
-        date: startDate === endDate
-            ? formatDate(startDate)
-            : formatDate(startDate) + " - " + formatDate(endDate),
+        date: startDate === endDate ? formatDate(startDate) : formatDate(startDate) + " - " + formatDate(endDate),
         time: startTime + " - " + endTime,
         purpose: purpose,
         file: supportingFile ? supportingFile.name : "Tidak ada berkas",
@@ -115,9 +119,7 @@ reservationForm.addEventListener("submit", function (event) {
 });
 
 successClose.addEventListener("click", closeSuccessOverlay);
-
 successCloseButton.addEventListener("click", closeSuccessOverlay);
-
 successOverlay.addEventListener("click", function (event) {
     if (event.target === successOverlay) {
         closeSuccessOverlay();
