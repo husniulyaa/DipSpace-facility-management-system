@@ -10,7 +10,7 @@ const allowedDomains = [
     "@students.undip.ac.id",
     "@lectures.undip.ac.id",
     "@staff.undip.ac.id",
-    "@facility.undip.ac.id",
+    "@officer.undip.ac.id",
     "@admin.undip.ac.id"
 ];
 
