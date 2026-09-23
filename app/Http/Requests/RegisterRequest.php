@@ -32,6 +32,11 @@ class RegisterRequest extends FormRequest
                 'unique:users,email',
                 'regex:/^[^@\s]+@(students|lectures|staff)\.undip\.ac\.id$/',
             ],
+            'phone' => [
+                'nullable',
+                'string',
+                'max:20',
+            ],
             'password' => [
                 'required',
                 'string',

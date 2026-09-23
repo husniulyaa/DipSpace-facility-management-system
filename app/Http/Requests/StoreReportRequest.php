@@ -24,6 +24,11 @@ class StoreReportRequest extends FormRequest
                 'string',
                 'in:Fasilitas rusak,Peralatan rusak,Kebersihan,Kelistrikan,Jaringan/Internet,Keamanan,Lainnya',
             ],
+            'location_detail' => [
+                'required',
+                'string',
+                'max:255',
+            ],
             'description' => [
                 'required',
                 'string',

@@ -212,6 +212,7 @@ class ReservationController extends Controller
         if ($newStatus === 'ditolak') {
             $reservation->update([
                 'status' => 'ditolak',
+                'rejection_reason' => $request->rejection_reason,
             ]);
 
             return response()->json([
