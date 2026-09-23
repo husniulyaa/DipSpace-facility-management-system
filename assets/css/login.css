@@ -244,3 +244,23 @@
     color: var(--primary);
     text-decoration: underline;
 }
+
+.back-to-catalog {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-decoration: none;
+    margin-bottom: 16px;
+    transition: color 0.2s ease;
+}
+
+.back-to-catalog:hover {
+    color: var(--primary);
+}
+
+.back-to-catalog .material-symbols-outlined {
+    font-size: 16px;
+}
