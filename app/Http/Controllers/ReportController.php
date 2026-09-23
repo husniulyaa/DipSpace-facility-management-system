@@ -15,6 +15,7 @@ class ReportController extends Controller
             'user_id' => $request->user()->id,
             'facility_id' => $request->facility_id,
             'category' => $request->category,
+            'location_detail' => $request->location_detail,
             'description' => $request->description,
             'status' => 'Baru',
             'resolution_note' => null,
@@ -97,6 +98,9 @@ class ReportController extends Controller
             'resolution_note' => $newStatus === 'Selesai'
                 ? $request->resolution_note
                 : $report->resolution_note,
+            'rejection_reason' => $newStatus === 'Ditolak'
+                ? $request->rejection_reason
+                : $report->rejection_reason,
         ]);
 
         return response()->json([

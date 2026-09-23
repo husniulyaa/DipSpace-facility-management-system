@@ -13,9 +13,11 @@ class Report extends Model
         'user_id',
         'facility_id',
         'category',
+        'location_detail',
         'description',
         'status',
         'resolution_note',
+        'rejection_reason',
     ];
 
     // Tabel reports hanya menggunakan created_at tanpa updated_at.
