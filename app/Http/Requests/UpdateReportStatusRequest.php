@@ -27,6 +27,11 @@ class UpdateReportStatusRequest extends FormRequest
                 'nullable',
                 'string',
             ],
+            'rejection_reason' => [
+                'required_if:status,Ditolak',
+                'nullable',
+                'string',
+             ],
         ];
     }
 
@@ -35,6 +40,7 @@ class UpdateReportStatusRequest extends FormRequest
         return [
             'status.required' => 'Status laporan wajib diisi.',
             'status.in' => 'Status laporan tidak valid.',
+            'rejection_reason.required_if' => 'Alasan penolakan wajib diisi.',
         ];
     }
 }
