@@ -1,0 +1,880 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DiServe - Fasilitas Kampus UNDIP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/availability.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="container navbar-container">
+        <a href="index.html" class="navbar-brand">
+          <img
+            src="assets/images/logo-patung-kuda-undip.png"
+            alt="Logo Universitas Diponegoro"
+            class="navbar-logo"
+          />
+
+          <div class="navbar-brand-text">
+            <span class="navbar-title">DiServe</span>
+            <span class="navbar-subtitle">
+              Sistem Informasi Peminjaman dan Pelaporan Fasilitas Kampus
+            </span>
+          </div>
+        </a>
+
+        <div class="navbar-menu">
+          <a href="login.html" class="navbar-login"> Masuk </a>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <section class="hero-section">
+        <div class="container">
+          <div class="hero-showcase">
+            <img
+              src="assets/images/Gd-Auditorium-Prof.-Soedarto.png"
+              alt="Gedung Auditorium Prof. Soedarto"
+              class="hero-image"
+            />
+
+            <div class="hero-overlay"></div>
+
+            <div class="hero-content">
+              <p class="hero-eyebrow">DiServe</p>
+              <h1 class="hero-title">Butuh ruang untuk kegiatanmu?</h1>
+
+              <p class="hero-description">
+                Temukan berbagai ruang dan fasilitas Universitas Diponegoro yang
+                bisa digunakan untuk belajar, berdiskusi, berkegiatan, dan
+                kebutuhan kampus lainnya
+              </p>
+
+              <div class="hero-stats">
+                <div class="hero-stat">
+                  <strong>Terpusat</strong>
+                  <span>Fasilitas</span>
+                </div>
+                <div class="hero-stat">
+                  <strong>Mudah</strong>
+                  <span>Reservasi</span>
+                </div>
+                <div class="hero-stat">
+                  <strong>07.00–20.00</strong>
+                  <span>Pengajuan</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <form class="search-panel" id="facility-filter">
+            <div class="search-box">
+              <span class="material-symbols-outlined">search</span>
+
+              <div class="search-box-input">
+                <label for="facility-search">Cari fasilitas</label>
+                <input
+                  type="text"
+                  id="facility-search"
+                  placeholder="Nama fasilitas..."
+                />
+              </div>
+            </div>
+
+            <div class="search-field">
+              <span class="material-symbols-outlined">location_on</span>
+
+              <div>
+                <label for="facility-location">Lokasi</label>
+
+                <select id="facility-location">
+                  <option value="">Semua lokasi</option>
+                  <option value="FSM">FSM</option>
+                  <option value="FK">FK</option>
+                  <option value="FKM">FKM</option>
+                  <option value="FT">FT</option>
+                  <option value="FIB">FIB</option>
+                  <option value="FISIP">FISIP</option>
+                  <option value="FEB">FEB</option>
+                  <option value="FPsi">FPsi</option>
+                  <option value="FPIK">FPIK</option>
+                  <option value="FPP">FPP</option>
+                  <option value="FPPsi">FPPsi</option>
+                  <option value="FH">FH</option>
+                  <option value="Sekolah Vokasi">Sekolah Vokasi</option>
+                  <option value="Pascasarjana">Pascasarjana</option>
+                  <option value="Rektorat">Rektorat</option>
+                  <option value="Lainnya">Lainnya</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="search-field">
+              <span class="material-symbols-outlined">category</span>
+
+              <div>
+                <label for="facility-type">Tipe</label>
+
+                <select id="facility-type">
+                  <option value="">Semua tipe</option>
+                  <option value="Gedung/Aula">Gedung / Aula</option>
+                  <option value="Auditorium">Auditorium</option>
+                  <option value="Laboratorium">Laboratorium</option>
+                  <option value="Ruang Kelas">Ruang Kelas</option>
+                  <option value="Ruang Rapat">Ruang Rapat</option>
+                  <option value="Ruang Seminar">Ruang Seminar</option>
+                  <option value="Stadion">Stadion</option>
+                  <option value="Lapangan">Lapangan</option>
+                  <option value="Fasilitas Olahraga">Fasilitas Olahraga</option>
+                  <option value="Fasilitas Kegiatan">Fasilitas Kegiatan</option>
+                  <option value="Fasilitas Umum">Fasilitas Umum</option>
+                  <option value="Lainnya">Lainnya</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="search-field">
+              <span class="material-symbols-outlined">groups</span>
+
+              <div>
+                <label for="facility-capacity">Kapasitas</label>
+
+                <select id="facility-capacity">
+                  <option value="">Semua kapasitas</option>
+                  <option value="0-50">Hingga 50 orang</option>
+                  <option value="51-100">51 - 100 orang</option>
+                  <option value="101-300">101 - 300 orang</option>
+                  <option value="301-800">301 - 800 orang</option>
+                  <option value="801-2000">801 - 2.000 orang</option>
+                  <option value="2001+">Lebih dari 2.000 orang</option>
+                </select>
+              </div>
+            </div>
+
+            <button type="submit" class="search-submit">
+              Cari fasilitas
+              <span class="material-symbols-outlined">arrow_forward</span>
+            </button>
+          </form>
+        </div>
+      </section>
+
+      <section class="facility-section">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <p class="section-eyebrow">Fasilitas Kampus</p>
+
+              <h2 class="section-title">
+                Cari ruangan yang sesuai dengan kebutuhanmu
+              </h2>
+
+              <p class="section-description">
+                Pilih berdasarkan lokasi, jenis fasilitas, atau kapasitas ruang
+                yang kamu butuhkan!
+              </p>
+            </div>
+          </div>
+
+          <div class="facility-grid">
+            <article
+              class="facility-card"
+              data-name="Muladi Dome"
+              data-type="Gedung/Aula"
+              data-location="Lainnya"
+              data-capacity="5000"
+            >
+              <img
+                src="assets/images/muladi-dome.png"
+                alt="Muladi Dome"
+                class="facility-card-image"
+              />
+
+              <div class="facility-card-overlay"></div>
+
+              <div class="facility-card-top">
+                <span class="facility-card-type">Gedung/Aula</span>
+
+                <span class="facility-card-availability available">
+                  Tersedia
+                </span>
+              </div>
+
+              <div class="facility-card-content">
+                <h3 class="facility-card-title">Muladi Dome</h3>
+
+                <div class="facility-card-meta">
+                  <span>
+                    <span class="material-symbols-outlined">location_on</span>
+                    Lainnya
+                  </span>
+
+                  <span>
+                    <span class="material-symbols-outlined">groups</span>
+                    5000 orang
+                  </span>
+                </div>
+
+                <p class="facility-card-address">
+                  <span class="material-symbols-outlined">signpost</span>
+                  Jl. Prof. Soedarto No.50239, Tembalang
+                </p>
+
+                <button
+                  type="button"
+                  class="facility-card-button"
+                  onclick="openAvailability('Muladi Dome')"
+                >
+                  Lihat ketersediaan
+                  <span class="material-symbols-outlined">arrow_forward</span>
+                </button>
+              </div>
+            </article>
+
+            <article
+              class="facility-card"
+              data-name="Polytron Stadium"
+              data-type="Stadion"
+              data-location="Lainnya"
+              data-capacity="300"
+            >
+              <img
+                src="assets/images/polytron-stadium.png"
+                alt="Polytron Stadium"
+                class="facility-card-image"
+              />
+
+              <div class="facility-card-overlay"></div>
+
+              <div class="facility-card-top">
+                <span class="facility-card-type">Stadion</span>
+
+                <span class="facility-card-availability available">
+                  Tersedia
+                </span>
+              </div>
+
+              <div class="facility-card-content">
+                <h3 class="facility-card-title">Polytron Stadium</h3>
+
+                <div class="facility-card-meta">
+                  <span>
+                    <span class="material-symbols-outlined">location_on</span>
+                    Lainnya
+                  </span>
+
+                  <span>
+                    <span class="material-symbols-outlined">groups</span>
+                    300 orang
+                  </span>
+                </div>
+
+                <p class="facility-card-address">
+                  <span class="material-symbols-outlined">signpost</span>
+                  Jl. Prof. Soedarto SH, Tembalang
+                </p>
+
+                <button
+                  type="button"
+                  class="facility-card-button"
+                  onclick="openAvailability('Polytron Stadium')"
+                >
+                  Lihat ketersediaan
+                  <span class="material-symbols-outlined">arrow_forward</span>
+                </button>
+              </div>
+            </article>
+
+            <article
+              class="facility-card"
+              data-name="Gedung Auditorium Prof. Soedarto, S.H."
+              data-type="Gedung/Aula"
+              data-location="Lainnya"
+              data-capacity="800"
+            >
+              <img
+                src="assets/images/Gd-Auditorium-Prof.-Soedarto.png"
+                alt="Gedung Auditorium Prof. Soedarto"
+                class="facility-card-image"
+              />
+
+              <div class="facility-card-overlay"></div>
+
+              <div class="facility-card-top">
+                <span class="facility-card-type">Gedung/Aula</span>
+
+                <span class="facility-card-availability maintenance">
+                  Dalam perbaikan
+                </span>
+              </div>
+
+              <div class="facility-card-content">
+                <h3 class="facility-card-title">
+                  Gedung Auditorium Prof. Soedarto, S.H.
+                </h3>
+
+                <div class="facility-card-meta">
+                  <span>
+                    <span class="material-symbols-outlined">location_on</span>
+                    Lainnya
+                  </span>
+
+                  <span>
+                    <span class="material-symbols-outlined">groups</span>
+                    800 orang
+                  </span>
+                </div>
+
+                <p class="facility-card-address">
+                  <span class="material-symbols-outlined">signpost</span>
+                  Jl. Prof. Soedarto, S.H., Kampus Universitas Diponegoro
+                  Tembalang
+                </p>
+
+                <button
+                  type="button"
+                  class="facility-card-button"
+                  onclick="
+                    openAvailability('Gedung Auditorium Prof. Soedarto, S.H.')
+                  "
+                >
+                  Lihat ketersediaan
+                  <span class="material-symbols-outlined">arrow_forward</span>
+                </button>
+              </div>
+            </article>
+
+            <article
+              class="facility-card"
+              data-name="Laboratorium Komputer Terintegrasi - Gedung Acintya Prasada"
+              data-type="Laboratorium"
+              data-location="FSM"
+              data-capacity="50"
+            >
+              <img
+                src="assets/images/Lab-Komputer-Gd-AP.png"
+                alt="Laboratorium Komputer Terintegrasi"
+                class="facility-card-image"
+              />
+
+              <div class="facility-card-overlay"></div>
+
+              <div class="facility-card-top">
+                <span class="facility-card-type">Laboratorium</span>
+
+                <span class="facility-card-availability available">
+                  Tersedia
+                </span>
+              </div>
+
+              <div class="facility-card-content">
+                <h3 class="facility-card-title">
+                  Laboratorium Komputer Terintegrasi - Gedung Acintya Prasada
+                </h3>
+
+                <div class="facility-card-meta">
+                  <span>
+                    <span class="material-symbols-outlined">location_on</span>
+                    FSM
+                  </span>
+
+                  <span>
+                    <span class="material-symbols-outlined">groups</span>
+                    50 orang
+                  </span>
+                </div>
+
+                <p class="facility-card-address">
+                  <span class="material-symbols-outlined">signpost</span>
+                  Jl. Prof. Jacob Rais, Tembalang
+                </p>
+
+                <button
+                  type="button"
+                  class="facility-card-button"
+                  onclick="
+                    openAvailability(
+                      'Laboratorium Komputer Terintegrasi - Gedung Acintya Prasada',
+                    )
+                  "
+                >
+                  Lihat ketersediaan
+                  <span class="material-symbols-outlined">arrow_forward</span>
+                </button>
+              </div>
+            </article>
+
+            <article
+              class="facility-card"
+              data-name="Gedung Laboratorium Terpadu"
+              data-type="Laboratorium"
+              data-location="Lainnya"
+              data-capacity="50"
+            >
+              <img
+                src="assets/images/gd-lab-bersama.png"
+                alt="Gedung Laboratorium Terpadu"
+                class="facility-card-image"
+              />
+
+              <div class="facility-card-overlay"></div>
+
+              <div class="facility-card-top">
+                <span class="facility-card-type">Laboratorium</span>
+
+                <span class="facility-card-availability maintenance"> Dalam Perbaikan </span>
+              </div>
+
+              <div class="facility-card-content">
+                <h3 class="facility-card-title">Gedung Laboratorium Terpadu</h3>
+
+                <div class="facility-card-meta">
+                  <span>
+                    <span class="material-symbols-outlined">location_on</span>
+                    Lainnya
+                  </span>
+
+                  <span>
+                    <span class="material-symbols-outlined">groups</span>
+                    50 orang
+                  </span>
+                </div>
+
+                <p class="facility-card-address">
+                  <span class="material-symbols-outlined">signpost</span>
+                  Jl. Prof. Soedarto, S.H., Tembalang
+                </p>
+
+                <button
+                  type="button"
+                  class="facility-card-button"
+                  onclick="openAvailability('Gedung Laboratorium Terpadu')"
+                >
+                  Lihat ketersediaan
+                  <span class="material-symbols-outlined">arrow_forward</span>
+                </button>
+              </div>
+            </article>
+
+            <article
+              class="facility-card"
+              data-name="Laboratorium Sentral FK"
+              data-type="Laboratorium"
+              data-location="Lainnya"
+              data-capacity="50"
+            >
+              <img
+                src="assets/images/lab-sentral-fk.png"
+                alt="Laboratorium Sentral FK"
+                class="facility-card-image"
+              />
+
+              <div class="facility-card-overlay"></div>
+
+              <div class="facility-card-top">
+                <span class="facility-card-type">Laboratorium</span>
+
+                <span class="facility-card-availability available">
+                  Tersedia
+                </span>
+              </div>
+
+              <div class="facility-card-content">
+                <h3 class="facility-card-title">Laboratorium Sentral FK</h3>
+
+                <div class="facility-card-meta">
+                  <span>
+                    <span class="material-symbols-outlined">location_on</span>
+                    Lainnya
+                  </span>
+
+                  <span>
+                    <span class="material-symbols-outlined">groups</span>
+                    50 orang
+                  </span>
+                </div>
+
+                <p class="facility-card-address">
+                  <span class="material-symbols-outlined">signpost</span>
+                  Jl. Prof. Moeljono S. Trastotenojo, Tembalang
+                </p>
+
+                <button
+                  type="button"
+                  class="facility-card-button"
+                  onclick="openAvailability('Laboratorium Sentral FK')"
+                >
+                  Lihat ketersediaan
+                  <span class="material-symbols-outlined">arrow_forward</span>
+                </button>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div class="availability-overlay" id="availability-overlay">
+      <div class="availability-box">
+        <div class="availability-header">
+          <div class="availability-title-wrapper">
+            <p class="availability-label">Ketersediaan Fasilitas</p>
+
+            <h2 class="availability-title" id="availability-facility-name">
+              Nama Fasilitas
+            </h2>
+
+            <p class="availability-subtitle">
+              Lihat jadwal penggunaan fasilitas berdasarkan tanggal yang
+              dipilih.
+            </p>
+          </div>
+
+          <button
+            type="button"
+            class="availability-close"
+            id="availability-close"
+            aria-label="Tutup"
+          >
+            <span class="material-symbols-outlined">close</span>
+          </button>
+        </div>
+
+        <div class="availability-content">
+          <div class="availability-date-group">
+            <label class="availability-date-label" for="availability-date">
+              Tanggal penggunaan
+            </label>
+
+            <div class="availability-date-wrapper">
+              <input
+                type="date"
+                id="availability-date"
+                class="availability-date"
+              />
+            </div>
+          </div>
+
+          <div class="availability-info">
+            <div class="availability-info-item">
+              <span class="material-symbols-outlined"> schedule </span>
+
+              <div>
+                <span class="availability-info-label"> Jam operasional </span>
+
+                <strong class="availability-info-value">
+                  06.00 - 23.00 WIB
+                </strong>
+              </div>
+            </div>
+
+            <div class="availability-info-item">
+              <span class="material-symbols-outlined"> timer </span>
+
+              <div>
+                <span class="availability-info-label"> Durasi slot </span>
+
+                <strong class="availability-info-value"> 30 menit </strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="availability-section">
+            <div class="availability-section-header">
+              <div>
+                <p class="availability-section-kicker">Jadwal penggunaan</p>
+
+                <h3 class="availability-section-title">Ketersediaan waktu</h3>
+              </div>
+
+              <span class="availability-slot-count"> 35 slot </span>
+            </div>
+
+            <div class="availability-legend">
+              <div class="availability-legend-item">
+                <span class="availability-legend-dot available"></span>
+
+                Tersedia
+              </div>
+
+              <div class="availability-legend-item">
+                <span class="availability-legend-dot pending"></span>
+
+                Menunggu
+              </div>
+
+              <div class="availability-legend-item">
+                <span class="availability-legend-dot unavailable"></span>
+
+                Tidak tersedia
+              </div>
+            </div>
+
+            <div class="availability-time-list">
+              <div class="availability-time-item">
+                <span class="availability-time"> 06.00 - 06.30 </span>
+
+                <span class="availability-status available"> Tersedia </span>
+              </div>
+
+              <div class="availability-time-item">
+                <span class="availability-time"> 06.30 - 07.00 </span>
+
+                <span class="availability-status available"> Tersedia </span>
+              </div>
+
+              <div class="availability-time-item">
+                <span class="availability-time"> 07.00 - 07.30 </span>
+
+                <span class="availability-status unavailable">
+                  Tidak tersedia
+                </span>
+              </div>
+
+              <div class="availability-time-item">
+                <span class="availability-time"> 07.30 - 08.00 </span>
+
+                <span class="availability-status available"> Tersedia </span>
+              </div>
+
+              <div class="availability-time-item">
+                <span class="availability-time"> 08.00 - 08.30 </span>
+
+                <span class="availability-status pending"> Menunggu </span>
+              </div>
+
+              <div class="availability-time-item">
+                <span class="availability-time"> 08.30 - 09.00 </span>
+
+                <span class="availability-status available"> Tersedia </span>
+              </div>
+
+              <div class="availability-time-item">
+                <span class="availability-time"> 09.00 - 09.30 </span>
+
+                <span class="availability-status available"> Tersedia </span>
+              </div>
+
+              <div class="availability-time-item">
+                <span class="availability-time"> 09.30 - 10.00 </span>
+
+                <span class="availability-status unavailable">
+                  Tidak tersedia
+                </span>
+              </div>
+
+              <div class="availability-time-item">
+                <span class="availability-time"> 10.00 - 10.30 </span>
+
+                <span class="availability-status available"> Tersedia </span>
+              </div>
+
+              <div class="availability-time-item">
+                <span class="availability-time"> 10.30 - 11.00 </span>
+
+                <span class="availability-status available"> Tersedia </span>
+              </div>
+
+              <div class="availability-time-item">
+                <span class="availability-time"> 11.00 - 11.30 </span>
+
+                <span class="availability-status pending"> Menunggu </span>
+              </div>
+
+              <div class="availability-time-item">
+                <span class="availability-time"> 11.30 - 12.00 </span>
+
+                <span class="availability-status available"> Tersedia </span>
+              </div>
+
+              <div class="availability-time-item">
+                <span class="availability-time"> 12.00 - 12.30 </span>
+
+                <span class="availability-status unavailable">
+                  Tidak tersedia
+                </span>
+              </div>
+
+              <div class="availability-time-item">
+                <span class="availability-time"> 12.30 - 13.00 </span>
+
+                <span class="availability-status available"> Tersedia </span>
+              </div>
+
+              <div class="availability-time-item">
+                <span class="availability-time"> 13.00 - 13.30 </span>
+
+                <span class="availability-status available"> Tersedia </span>
+              </div>
+
+              <div class="availability-time-item">
+                <span class="availability-time"> 13.30 - 14.00 </span>
+
+                <span class="availability-status available"> Tersedia </span>
+              </div>
+
+              <div class="availability-time-item">
+                <span class="availability-time"> 14.00 - 14.30 </span>
+
+                <span class="availability-status unavailable">
+                  Tidak tersedia
+                </span>
+              </div>
+
+              <div class="availability-time-item">
+                <span class="availability-time"> 14.30 - 15.00 </span>
+
+                <span class="availability-status pending"> Menunggu </span>
+              </div>
+
+              <div class="availability-time-item">
+                <span class="availability-time"> 15.00 - 15.30 </span>
+
+                <span class="availability-status available"> Tersedia </span>
+              </div>
+
+              <div class="availability-time-item">
+                <span class="availability-time"> 15.30 - 16.00 </span>
+
+                <span class="availability-status available"> Tersedia </span>
+              </div>
+
+              <div class="availability-time-item">
+                <span class="availability-time"> 16.00 - 16.30 </span>
+
+                <span class="availability-status unavailable">
+                  Tidak tersedia
+                </span>
+              </div>
+
+              <div class="availability-time-item">
+                <span class="availability-time"> 16.30 - 17.00 </span>
+
+                <span class="availability-status available"> Tersedia </span>
+              </div>
+
+              <div class="availability-time-item">
+                <span class="availability-time"> 17.00 - 17.30 </span>
+
+                <span class="availability-status available"> Tersedia </span>
+              </div>
+
+              <div class="availability-time-item">
+                <span class="availability-time"> 17.30 - 18.00 </span>
+
+                <span class="availability-status pending"> Menunggu </span>
+              </div>
+
+              <div class="availability-time-item">
+                <span class="availability-time"> 18.00 - 18.30 </span>
+
+                <span class="availability-status available"> Tersedia </span>
+              </div>
+
+              <div class="availability-time-item">
+                <span class="availability-time"> 18.30 - 19.00 </span>
+
+                <span class="availability-status unavailable">
+                  Tidak tersedia
+                </span>
+              </div>
+
+              <div class="availability-time-item">
+                <span class="availability-time"> 19.00 - 19.30 </span>
+
+                <span class="availability-status available"> Tersedia </span>
+              </div>
+
+              <div class="availability-time-item">
+                <span class="availability-time"> 19.30 - 20.00 </span>
+
+                <span class="availability-status available"> Tersedia </span>
+              </div>
+
+              <div class="availability-time-item">
+                <span class="availability-time"> 20.00 - 20.30 </span>
+
+                <span class="availability-status pending"> Menunggu </span>
+              </div>
+
+              <div class="availability-time-item">
+                <span class="availability-time"> 20.30 - 21.00 </span>
+
+                <span class="availability-status available"> Tersedia </span>
+              </div>
+
+              <div class="availability-time-item">
+                <span class="availability-time"> 21.00 - 21.30 </span>
+
+                <span class="availability-status unavailable">
+                  Tidak tersedia
+                </span>
+              </div>
+
+              <div class="availability-time-item">
+                <span class="availability-time"> 21.30 - 22.00 </span>
+
+                <span class="availability-status available"> Tersedia </span>
+              </div>
+
+              <div class="availability-time-item">
+                <span class="availability-time"> 22.00 - 22.30 </span>
+
+                <span class="availability-status available"> Tersedia </span>
+              </div>
+
+              <div class="availability-time-item">
+                <span class="availability-time"> 22.30 - 23.00 </span>
+
+                <span class="availability-status pending"> Menunggu </span>
+              </div>
+
+              <div class="availability-time-item">
+                <span class="availability-time"> 23.00 - 23.30 </span>
+
+                <span class="availability-status available"> Tersedia </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="availability-footer">
+          <button
+            type="button"
+            class="availability-button availability-button-secondary"
+            id="availability-cancel"
+          >
+            Tutup
+          </button>
+        </div>
+      </div>
+    </div>
+    <footer class="catalog-footer">
+      <div class="catalog-footer-inner">
+        <div class="catalog-footer-brand">
+          <span class="catalog-footer-title">DiServe</span>
+          <p>Informasi ruang dan fasilitas Universitas Diponegoro.</p>
+        </div>
+        <div class="catalog-footer-copyright">
+          <span>© 2026 DiServe</span>
+          <span>Universitas Diponegoro</span>
+        </div>
+      </div>
+    </footer>
+    <script src="assets/js/catalog.js"></script>
+    <script src="assets/js/availability.js"></script>
+  </body>
+</html>

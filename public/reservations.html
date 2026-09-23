@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservasi Saya - DiServe</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/reservations.css">
+</head>
+<body>
+    <header class="reservations-navbar">
+        <a href="dashboard.html" class="reservations-brand">
+            <div class="reservations-logo"><img src="assets/images/logo-patung-kuda-undip.png" alt="Logo UNDIP"></div>
+            <div class="reservations-brand-text">
+                <h1>DiServe</h1>
+                <span>Sistem Informasi Peminjaman dan Pelaporan Fasilitas Kampus</span>
+            </div>
+        </a>
+        <a href="dashboard.html" class="reservations-back">
+            <span class="material-symbols-outlined">arrow_back</span>
+            Kembali ke Dashboard
+        </a>
+    </header>
+    <main class="reservations-main">
+        <section class="reservations-header">
+            <p class="reservations-label">Reservasi Saya</p>
+            <h2>Riwayat Reservasi</h2>
+            <p>Kelola dan lihat detail seluruh pengajuan reservasi fasilitas kamu.</p>
+        </section>
+        <section class="reservations-card">
+            <div class="reservations-card-header">
+                <div>
+                    <h3>Daftar Reservasi</h3>
+                    <p>Seluruh pengajuan reservasi yang pernah kamu buat.</p>
+                </div>
+                <a href="reservation.html" class="reservations-add-button">
+                    <span class="material-symbols-outlined">add</span>
+                    Ajukan Reservasi
+                </a>
+            </div>
+            <div class="reservations-table-wrapper">
+                <table class="reservations-table">
+                    <thead>
+                        <tr>
+                            <th>Fasilitas</th>
+                            <th>Tanggal</th>
+                            <th>Waktu</th>
+                            <th>Keperluan</th>
+                            <th>Status</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="reservation-facility">
+                                    <strong>Muladi Dome</strong>
+                                    <span>Gedung serbaguna</span>
+                                </div>
+                            </td>
+                            <td>20 September 2026</td>
+                            <td>10:00 - 17:00</td>
+                            <td>Seminar</td>
+                            <td><span class="reservation-status reservation-status-pending">Menunggu Persetujuan</span></td>
+                            <td>
+                                <button type="button" class="reservation-table-action reservation-detail-button"
+                                    data-facility="Muladi Dome"
+                                    data-date="20 September 2026"
+                                    data-time="10:00 - 17:00"
+                                    data-purpose="Seminar"
+                                    data-status="Menunggu Persetujuan"
+                                    data-status-class="pending"
+                                    data-file="Proposal_Seminar.pdf"
+                                    data-submitted="15 September 2026, 14:32"
+                                    data-cancellation-deadline="2026-09-19T10:00:00">
+                                    Lihat
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="reservation-facility">
+                                    <strong>Auditorium</strong>
+                                    <span>Gedung Auditorium</span>
+                                </div>
+                            </td>
+                            <td>25 September 2026</td>
+                            <td>08:00 - 12:00</td>
+                            <td>Rapat organisasi</td>
+                            <td><span class="reservation-status reservation-status-approved">Disetujui</span></td>
+                            <td>
+                                <button type="button" class="reservation-table-action reservation-detail-button"
+                                    data-facility="Auditorium"
+                                    data-date="25 September 2026"
+                                    data-time="08:00 - 12:00"
+                                    data-purpose="Rapat organisasi"
+                                    data-status="Disetujui"
+                                    data-status-class="approved"
+                                    data-file="Surat_Izin_Rapat.pdf"
+                                    data-submitted="12 September 2026, 09:15"
+                                    data-cancellation-deadline="2026-09-19T10:00:00">
+                                    Lihat
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="reservation-facility">
+                                    <strong>Lab Komputer Terintegrasi</strong>
+                                    <span>Laboratorium komputer</span>
+                                </div>
+                            </td>
+                            <td>28 September 2026</td>
+                            <td>13:00 - 16:00</td>
+                            <td>Praktikum</td>
+                            <td><span class="reservation-status reservation-status-rejected">Ditolak</span></td>
+                            <td>
+                                <button type="button" class="reservation-table-action reservation-detail-button"
+                                    data-facility="Lab Komputer Terintegrasi"
+                                    data-date="28 September 2026"
+                                    data-time="13:00 - 16:00"
+                                    data-purpose="Praktikum"
+                                    data-status="Ditolak"
+                                    data-status-class="rejected"
+                                    data-file="Surat_Tugas_Praktikum.pdf"
+                                    data-submitted="10 September 2026, 15:40"
+                                    data-cancellation-deadline="2026-09-19T10:00:00">
+                                    Lihat
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="reservation-facility">
+                                    <strong>Gedung Laboratorium Terpadu</strong>
+                                    <span>Gedung laboratorium</span>
+                                </div>
+                            </td>
+                            <td>2 Oktober 2026</td>
+                            <td>09:00 - 15:00</td>
+                            <td>Kegiatan kemahasiswaan</td>
+                            <td><span class="reservation-status reservation-status-cancelled">Dibatalkan</span></td>
+                            <td>
+                                <button type="button" class="reservation-table-action reservation-detail-button"
+                                    data-facility="Gedung Laboratorium Terpadu"
+                                    data-date="2 Oktober 2026"
+                                    data-time="09:00 - 15:00"
+                                    data-purpose="Kegiatan kemahasiswaan"
+                                    data-status="Dibatalkan"
+                                    data-status-class="cancelled"
+                                    data-file="Proposal_Kegiatan.pdf"
+                                    data-submitted="8 September 2026, 11:20"
+                                    data-cancellation-deadline="2026-09-19T10:00:00">
+                                    Lihat
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+    <div class="reservation-detail-overlay" id="reservation-detail-overlay">
+        <div class="reservation-detail-modal">
+            <div class="reservation-detail-header">
+                <div>
+                    <p>Detail Reservasi</p>
+                    <h2 id="detail-facility">Muladi Dome</h2>
+                </div>
+                <button type="button" class="reservation-detail-close" id="reservation-detail-close" aria-label="Tutup">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <div class="reservation-detail-body">
+                <div class="reservation-detail-status">
+                    <span>Status</span>
+                    <strong id="detail-status" class="status-pending">Menunggu Persetujuan</strong>
+                </div>
+                <div class="reservation-detail-grid">
+                    <div class="reservation-detail-item">
+                        <span>Fasilitas</span>
+                        <strong id="detail-facility-name">Muladi Dome</strong>
+                    </div>
+                    <div class="reservation-detail-item">
+                        <span>Tanggal Penggunaan</span>
+                        <strong id="detail-date">20 September 2026</strong>
+                    </div>
+                    <div class="reservation-detail-item">
+                        <span>Waktu Penggunaan</span>
+                        <strong id="detail-time">10:00 - 17:00</strong>
+                    </div>
+                    <div class="reservation-detail-item">
+                        <span>Keperluan</span>
+                        <strong id="detail-purpose">Seminar</strong>
+                    </div>
+                </div>
+                <div class="reservation-detail-item reservation-detail-file">
+                    <span>Berkas Pendukung</span>
+                    <strong id="detail-file">Proposal_Seminar.pdf</strong>
+                </div>
+                <div class="reservation-detail-item">
+                    <span>Diajukan</span>
+                    <strong id="detail-submitted">15 September 2026, 14:32</strong>
+                </div>
+            </div>
+            <div class="reservation-cancellation-info">
+                <div class="reservation-detail-item">
+                    <span class="reservation-detail-item-label">Batas pembatalan</span>
+                    <strong id="detail-cancellation-deadline">19 September 2026, 10:00</strong>
+                </div>
+                <p>Reservasi dapat dibatalkan paling lambat 24 jam sebelum waktu mulai penggunaan</p>
+            </div>
+            <div class="reservation-detail-footer">
+                <button type="button" class="reservation-detail-button reservation-cancel-button" id="reservation-cancel-button">
+                    Batalkan Reservasi
+                </button>
+                <button type="button" class="reservation-detail-button" id="reservation-detail-cancel">
+                    Tutup
+                </button>
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/reservations.js"></script>
+</body>
+</html>

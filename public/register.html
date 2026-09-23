@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Akun DiServe</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/register.css">
+</head>
+<body>
+    <div class="register-background">
+        <iframe src="index.html" title="Catalog DiServe"></iframe>
+    </div>
+    <div class="register-overlay"></div>
+    <main class="register-container">
+        <section class="register-box">
+            <a href="index.html" class="back-to-catalog">
+                <span class="material-symbols-outlined">arrow_back</span>
+                Kembali
+            </a>
+            <div class="register-header">
+                <h1>Buat akun DiServe</h1>
+                <p>Daftar untuk menggunakan layanan fasilitas kampus.</p>
+            </div>
+            <form class="register-form" id="register-form">
+                <div class="form-group">
+                    <label for="name">Nama Lengkap</label>
+                    <div class="input-wrapper">
+                        <span class="material-symbols-outlined">person</span>
+                        <input type="text" id="name" name="name" placeholder="Masukkan nama lengkap" autocomplete="name" required>
+                    </div>
+                    <p id="name-error" class="form-error"></p>
+                </div>
+                <div class="form-group">
+                    <label for="identity-number">NIM/NIP</label>
+                    <div class="input-wrapper">
+                        <span class="material-symbols-outlined">badge</span>
+                        <input type="text" id="identity-number" name="identity-number" placeholder="Masukkan NIM/NIP" autocomplete="off" required>
+                    </div>
+                    <p id="identity-error" class="form-error"></p>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email UNDIP</label>
+                    <div class="input-wrapper">
+                        <span class="material-symbols-outlined">mail</span>
+                        <input type="email" id="email" name="email" placeholder="Masukkan email UNDIP" autocomplete="email" required>
+                    </div>
+                    <p id="email-error" class="form-error"></p>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="input-wrapper">
+                        <span class="material-symbols-outlined">lock</span>
+                        <input type="password" id="password" name="password" placeholder="Masukkan password" autocomplete="new-password" required>
+                        <button type="button" id="toggle-password" class="password-toggle" aria-label="Tampilkan password">
+                            <span class="material-symbols-outlined">visibility</span>
+                        </button>
+                    </div>
+                    <p id="password-error" class="form-error"></p>
+                    <div class="password-requirements">
+                        <p>Password harus memiliki:</p>
+                        <ul>
+                            <li id="requirement-length">Minimal 8 karakter</li>
+                            <li id="requirement-lowercase">Huruf kecil (a-z)</li>
+                            <li id="requirement-uppercase">Huruf besar (A-Z)</li>
+                            <li id="requirement-number">Angka (0-9)</li>
+                            <li id="requirement-special">Karakter khusus</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password-confirmation">Konfirmasi Password</label>
+                    <div class="input-wrapper">
+                        <span class="material-symbols-outlined">lock</span>
+                        <input type="password" id="password-confirmation" name="password-confirmation" placeholder="Ulangi password" autocomplete="new-password" required>
+                        <button type="button" id="toggle-confirmation" class="password-toggle" aria-label="Tampilkan password">
+                            <span class="material-symbols-outlined">visibility</span>
+                        </button>
+                    </div>
+                    <p id="confirmation-error" class="form-error"></p>
+                </div>
+                <button type="submit" class="btn-register">Daftar</button>
+                <div class="login-link">
+                    <p>Sudah punya akun?</p>
+                    <a href="login.html">Masuk</a>
+                </div>
+            </form>
+            <p class="register-footer">
+                © 2026 DiServe. All rights reserved.
+            </p>
+        </section>
+    </main>
+    <script src="assets/js/register.js"></script>
+</body>
+</html>
