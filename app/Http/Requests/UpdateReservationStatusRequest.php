@@ -22,6 +22,12 @@ class UpdateReservationStatusRequest extends FormRequest
                     'ditolak',
                 ]),
             ],
+
+            'rejection_reason' => [
+                'required_if:status,ditolak',
+                'nullable',
+                'string',
+            ],
         ];
     }
 
@@ -30,6 +36,7 @@ class UpdateReservationStatusRequest extends FormRequest
         return [
             'status.required' => 'Status keputusan wajib diisi.',
             'status.in' => 'Status hanya boleh disetujui atau ditolak.',
+            'rejection_reason.required_if' => 'Alasan penolakan wajib diisi.',
         ];
     }
 }
