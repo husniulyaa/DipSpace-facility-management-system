@@ -1,36 +1,31 @@
 :root {
   --white: #ffffff;
-  --background: #ffffff;
+  --background: #f8f7f5;
 
-  --primary: #d5638f;
-  --primary-dark: #c5688e;
-  --primary-light: #e6b2c6;
+  --primary: #6b1426;
+  --primary-dark: #4a0d1a;
+  --primary-light: #9b5262;
 
-  --purple-50: #fef6fb;
-  --purple-100: #d6e5fa;
-  --purple-200: #ffffff;
-  /* --purple-300: #c4b5fd;
-  --purple-400: #a78bfa; */
+  --red-50: #faf5f6;
+  --text-primary: #292426;
+  --text-secondary: #665e61;
+  --text-muted: #8a8380;
 
-  --text-primary: #2f2930;
-  --text-secondary: #655b62;
-  --text-muted: #8a8087;
+  --border: #ded7d4;
+  --border-light: #eeeae7;
 
-  --border: #e6a5c8;
-  --border-light: #f3e7ed;
-
-  --succes: #3f8f6b;
-  --succes-bg: #e2f3ea;
-  --warning: #c58a35;
-  --warning-bg: #fff1d6;
-  --danger: #c95b61;
-  --danger-bg: #fbe2e3;
+  --succes: #3f8060;
+  --succes-bg: #e5f1eb;
+  --warning: #ad7a2f;
+  --warning-bg: #f8efd9;
+  --danger: #b94b54;
+  --danger-bg: #f8e4e5;
   --neutral: #475569;
   --neutral-bg: #e2e8f0;
 
-  --font-heading: "Plus Jakarta Sans", sans-serif;
-  --font-body: "Plus Jakarta Sans", sans-serif;
-  --font-label: "Inter", sans-serif;
+  --font-heading: "Source Sans 3", sans-serif;
+  --font-body: "Source Sans 3", sans-serif;
+  --font-label: "Source Sans 3", sans-serif;
 
   --radius-kecil: 8px;
   --radius-medium: 12px;
@@ -38,12 +33,11 @@
   --radius-xl: 20px;
   --radius-full: 999px;
 
-  --shadow-kecil: 0 2px 6px rgba(15, 23, 42, 0.05);
-  --shadow-medium: 0 6px 16px rgba(15, 23, 42, 0.08);
-  --shadow-large: 0 12px 30px rgba(15, 23, 42, 0.1);
-
+  --shadow-kecil: 0 2px 6px rgba(36, 25, 29, 0.05);
+  --shadow-medium: 0 6px 16px rgba(36, 25, 29, 0.08);
+  --shadow-large: 0 12px 30px rgba(36, 25, 29, 0.1);
+  
   --container-width: 1230px;
-  --page-padding: 24px;
 }
 
 * {
